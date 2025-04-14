@@ -1,0 +1,49 @@
+<div class="flex space-x-4">
+    <a href="#menu" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-600 transition">
+        เมนูอาหาร
+    </a>
+
+    <?php if (!isLoggedIn()): ?>
+        <a href="logSign.php" class="bg-white text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            สมัครสมาชิก
+        </a>
+
+    <?php endif; ?>
+</div>
+
+
+
+<div class="p-4">
+                    <h3 class="text-lg font-semibold"><?php echo $food['name']; ?></h3>
+                    <p class="text-gray-600 text-sm mb-2"><?php echo $food['description']; ?></p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-primary">฿<?php echo number_format($food['price'], 2); ?></span>
+                        <a href="product-action.php?action=view&id=<?php echo $food['id']; ?>" class="bg-primary text-white px-4 py-2 rounded hover:bg-amber-600 transition">สั่งเลย</a>
+                    </div>
+                </div>
+
+
+
+check BUG =>
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
+
+
+header css & css selecter =>
+<head>
+    <meta charset="UTF-8">
+    <title><?php echo $pageTitle ?? 'ชื่อเว็บ'; ?></title>
+
+    <!-- CSS หลัก -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS เฉพาะหน้า -->
+    <?php if (isset($customCss)): ?>
+        <link rel="stylesheet" href="<?php echo $customCss; ?>">
+    <?php endif; ?>
+
+    <!-- Tailwind / Font / อื่นๆ -->
+</head>
