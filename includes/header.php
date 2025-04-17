@@ -1,4 +1,5 @@
 <?php
+ob_start();
 // Include functions and start session
 require_once(__DIR__ . '/functions.php');
 require_once(__DIR__ . '/../config/foodOrder.php');
@@ -70,7 +71,7 @@ require_once(__DIR__ . '/../config/foodOrder.php');
                 <!-- โลโก้ -->
                 <div class="flex items-center">
                     <a href="index.php" class="flex-shrink-0 flex items-center">
-                        <img src="images/เตี๋ยวเรือเจ๊เต้ย.png" alt="เตี๋ยวเรือเจ๊เต้ย" class="h-8 w-auto">
+                        <img src="images/01.png" alt="เตี๋ยวเรือเจ๊เต้ย" class="h-8 w-auto">
                     </a>
                 </div>
 
@@ -105,41 +106,42 @@ require_once(__DIR__ . '/../config/foodOrder.php');
                         <?php else: ?>
                         <?php endif; ?>
 
-                        <a href="logout.php" class="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition">
-                            <i class="fas fa-sign-out-alt mr-1"></i> ออกจากระบบ
-                        </a>
+                        
 
                         <!-- ปุ่มชื่อผู้ใช้ -->
                         <div class="relative group">
                             <button onclick="toggleUserMenu()" class="flex items-center space-x-1 text-gray-700 hover:text-primary focus:outline-none">
-                                <span><?php echo $_SESSION['username']; ?></span>
                                 <i class="fas fa-user text-xs"></i>
+                                <span><?php echo $_SESSION['username']; ?></span>
+                                
                             </button>
 
                             <!-- เมนูดรอปดาวน์ -->
-                            <div id="userMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded shadow-lg border z-50">
-                            <!-- บัญชี -->
+                            <!-- <div id="userMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded shadow-lg border z-50">
+                             บัญชี 
                                 <button id="toggleAccount" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-user-circle mr-2"></i> บัญชี
                                 </button>
 
-                                <!-- การแจ้งเตือน -->
+                                 การแจ้งเตือน 
                                 <button id="toggleNotification" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
                                         <i class="bx bxs-bell-ring mr-2"></i> การแจ้งเตือน
                                 </button>
 
-                                <!-- ติดต่อเรา -->
+                                ติดต่อเรา 
                                 <button id="toggleContact" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
                                     <i class="bx bxs-chat mr-2"></i> ติดต่อเรา
                                 </button>
 
-                                <!-- รายการโปรด -->
+                                 รายการโปรด
                                 <button id="toggleFavorites" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-heart mr-2"></i> รายการโปรด
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
-
+                        <a href="logout.php" class="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition">
+                            <i class="fas fa-sign-out-alt mr-1"></i> ออกจากระบบ
+                        </a>
                     <?php else: ?>
                         <a href="logSign.php" class="text-gray-700 hover:text-primary px-3 py-2">เข้าสู่ระบบ</a>
                         <a href="logSign.php" class="bg-primary text-white px-4 py-2 rounded hover:bg-amber-600 transition">สมัครสมาชิก</a>
@@ -164,7 +166,7 @@ require_once(__DIR__ . '/../config/foodOrder.php');
         </div>
     </div>
 
-    <!-- Sidebar บัญชี -->
+     <!-- Sidebar บัญชี 
     <div id="accountSidebar"
         class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
         <div class="flex items-center justify-between px-4 py-3 border-b">
@@ -178,7 +180,7 @@ require_once(__DIR__ . '/../config/foodOrder.php');
         </div>
     </div>
 
-    <!-- Sidebar การแจ้งเตือน -->
+    Sidebar การแจ้งเตือน
     <div id="notificationSidebar"
         class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
         <div class="flex items-center justify-between px-4 py-3 border-b">
@@ -192,7 +194,7 @@ require_once(__DIR__ . '/../config/foodOrder.php');
         </div>
     </div>
 
-    <!-- Sidebar ติดต่อเรา -->
+    Sidebar ติดต่อเรา 
     <div id="contactSidebar"
         class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
         <div class="flex items-center justify-between px-4 py-3 border-b">

@@ -1,6 +1,6 @@
 <?php
-include '../includes/functions.php'; // ตรวจสอบ path ให้ถูกต้อง
-include '../config/foodOrder.php'; // ตรวจสอบ path ให้ถูกต้อง
+include '../includes/functions.php'; 
+include '../config/foodOrder.php'; 
 mysqli_set_charset($conn, "utf8");
 
 $sql = "SELECT * FROM menu";

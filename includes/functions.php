@@ -16,8 +16,13 @@ function isAdmin() {
 
 // Function to redirect to a page
 function redirect($location) {
-    header("Location: $location");
-    exit;
+    if (!headers_sent()) {
+        header("Location: $location");
+        exit;
+    } else {
+        echo "<script>window.location.href='$location';</script>";
+        exit;
+    }
 }
 
 // Function to sanitize input data
@@ -52,7 +57,7 @@ function displayFoodCard($food) {
     $description = $food['description'] ?? '';
     $price = $food['price'];
     $image = $food['image'] ?? 'https://via.placeholder.com/150?text=อาหาร';
-    
+
     $output = '<div class="bg-white rounded-lg shadow-md overflow-hidden">';
     $output .= '<img src="' . $image . '" alt="' . $name . '" class="w-full h-48 object-cover">';
     $output .= '<div class="p-4">';
@@ -62,7 +67,7 @@ function displayFoodCard($food) {
     $output .= '<span class="text-lg font-bold text-primary">฿' . number_format($price, 2) . '</span>';
     $output .= '<a href="product-action.php?action=view&id=' . $id . '" class="bg-primary text-white px-4 py-2 rounded hover:bg-amber-600 transition">สั่งเลย</a>';
     $output .= '</div></div></div>';
-    
+
     return $output;
 }
 
@@ -72,14 +77,14 @@ function getCartTotal() {
     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $item) {
             $subtotal = $item['price'] * $item['quantity'];
-            
+
             // Add addon prices
             if (isset($item['addons']) && !empty($item['addons'])) {
                 foreach ($item['addons'] as $addon) {
                     $subtotal += $addon['price'];
                 }
             }
-            
+
             $total += $subtotal;
         }
     }
@@ -103,11 +108,11 @@ function getFoodById($id) {
     $id = sanitize($id);
     $query = "SELECT * FROM foods WHERE id = $id";
     $result = mysqli_query($conn, $query);
-    
+
     if (mysqli_num_rows($result) > 0) {
         return mysqli_fetch_assoc($result);
     }
-    
+
     return null;
 }
 
@@ -116,12 +121,12 @@ function getAllCategories() {
     global $conn;
     $query = "SELECT * FROM categories ORDER BY name";
     $result = mysqli_query($conn, $query);
-    
+
     $categories = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $categories[] = $row;
     }
-    
+
     return $categories;
 }
 
@@ -130,12 +135,12 @@ function getAllFoods() {
     global $conn;
     $query = "SELECT * FROM foods ORDER BY name";
     $result = mysqli_query($conn, $query);
-    
+
     $foods = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $foods[] = $row;
     }
-    
+
     return $foods;
 }
 
@@ -145,12 +150,12 @@ function getFoodsByCategory($categoryId) {
     $categoryId = sanitize($categoryId);
     $query = "SELECT * FROM foods WHERE category_id = $categoryId ORDER BY name";
     $result = mysqli_query($conn, $query);
-    
+
     $foods = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $foods[] = $row;
     }
-    
+
     return $foods;
 }
 
@@ -160,74 +165,71 @@ function getAddonsByType($type) {
     $type = sanitize($type);
     $query = "SELECT * FROM addon_options WHERE type = '$type'";
     $result = mysqli_query($conn, $query);
-    
+
     $addons = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $addons[] = $row;
     }
-    
+
     return $addons;
 }
 
 // Function to create a new order
-function createOrder($userId, $items, $total, $address, $phone) {
+function createOrder($userId, $items, $totalPrice) {
     global $conn;
-    
-    // Begin transaction
+
+    // Start transaction
     mysqli_begin_transaction($conn);
-    
+
     try {
-        // Insert order
+        // Create order
         $userId = sanitize($userId);
-        $total = sanitize($total);
-        $address = sanitize($address);
-        $phone = sanitize($phone);
-        $status = "pending";
-        
-        $query = "INSERT INTO orders (user_id, total_price, address, phone, status, created_at) 
-                  VALUES ('$userId', '$total', '$address', '$phone', '$status', NOW())";
-        
+        $totalPrice = sanitize($totalPrice);
+
+        $query = "INSERT INTO orders (user_id, total_price, status) 
+                  VALUES ('$userId', '$totalPrice', 'pending')";
+
         if (!mysqli_query($conn, $query)) {
             throw new Exception("Error creating order: " . mysqli_error($conn));
         }
-        
+
         $orderId = mysqli_insert_id($conn);
-        
+
         // Insert order items
         foreach ($items as $item) {
             $foodId = sanitize($item['id']);
             $quantity = sanitize($item['quantity']);
             $price = sanitize($item['price']);
             $specialInstructions = isset($item['special_instructions']) ? sanitize($item['special_instructions']) : '';
-            
+
             $query = "INSERT INTO order_items (order_id, food_id, quantity, price, special_instructions) 
                       VALUES ('$orderId', '$foodId', '$quantity', '$price', '$specialInstructions')";
-            
+
             if (!mysqli_query($conn, $query)) {
                 throw new Exception("Error creating order item: " . mysqli_error($conn));
             }
-            
+
             $orderItemId = mysqli_insert_id($conn);
-            
+
             // Insert order item addons
             if (isset($item['addons']) && !empty($item['addons'])) {
                 foreach ($item['addons'] as $addon) {
                     $addonId = sanitize($addon['id']);
                     $addonPrice = sanitize($addon['price']);
-                    
+
                     $query = "INSERT INTO order_item_addons (order_item_id, addon_id, price) 
                               VALUES ('$orderItemId', '$addonId', '$addonPrice')";
-                              
+
                     if (!mysqli_query($conn, $query)) {
                         throw new Exception("Error creating order item addon: " . mysqli_error($conn));
                     }
                 }
             }
         }
-        
+
         // Commit transaction
         mysqli_commit($conn);
-        
+
         return $orderId;
     } catch (Exception $e) {
         // Rollback transaction on error
@@ -240,15 +242,20 @@ function createOrder($userId, $items, $total, $address, $phone) {
 function getUserOrders($userId) {
     global $conn;
     $userId = sanitize($userId);
+
+    if (isAdmin()) {
+        $query = "SELECT o.*, u.username FROM orders o LEFT JOIN users u ON o.user_id = u.id ORDER BY o.created_at DESC";
+    } else {
+        $query = "SELECT * FROM orders WHERE user_id = '$userId' ORDER BY created_at DESC";
+    }
     
-    $query = "SELECT * FROM orders WHERE user_id = '$userId' ORDER BY created_at DESC";
     $result = mysqli_query($conn, $query);
-    
+
     $orders = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $orders[] = $row;
     }
-    
+
     return $orders;
 }
 
@@ -256,14 +263,14 @@ function getUserOrders($userId) {
 function getOrderDetails($orderId) {
     global $conn;
     $orderId = sanitize($orderId);
-    
+
     $query = "SELECT oi.*, f.name as food_name, f.image as food_image 
               FROM order_items oi 
               JOIN foods f ON oi.food_id = f.id 
               WHERE oi.order_id = '$orderId'";
-    
+
     $result = mysqli_query($conn, $query);
-    
+
     $items = [];
     while ($row = mysqli_fetch_assoc($result)) {
         // Get addons for this order item
@@ -272,18 +279,18 @@ function getOrderDetails($orderId) {
                       FROM order_item_addons oia 
                       JOIN addon_options ao ON oia.addon_id = ao.id 
                       WHERE oia.order_item_id = '$orderItemId'";
-        
+
         $addonResult = mysqli_query($conn, $addonQuery);
-        
+
         $addons = [];
         while ($addonRow = mysqli_fetch_assoc($addonResult)) {
             $addons[] = $addonRow;
         }
-        
+
         $row['addons'] = $addons;
         $items[] = $row;
     }
-    
+
     return $items;
 }
 ?>

@@ -16,7 +16,7 @@ $orders = getUserOrders($userId);
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <h1 class="text-2xl font-bold mb-6">ประวัติการสั่งซื้อของคุณ</h1>
-    
+
     <?php if (empty($orders)): ?>
         <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <div class="text-gray-500 mb-4">
@@ -50,13 +50,13 @@ $orders = getUserOrders($userId);
                                 <?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                ฿<?php echo number_format($order['total_price'], 2); ?>
+                                <?php echo number_format($order['total_price'], 2); ?>฿
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <?php
                                     $statusClass = '';
                                     $statusText = '';
-                                    
+
                                     switch ($order['status']) {
                                         case 'pending':
                                             $statusClass = 'bg-yellow-100 text-yellow-800';
@@ -65,6 +65,14 @@ $orders = getUserOrders($userId);
                                         case 'processing':
                                             $statusClass = 'bg-blue-100 text-blue-800';
                                             $statusText = 'กำลังเตรียมอาหาร';
+                                            break;
+                                        case 'out_for_delivery':
+                                            $statusClass = 'bg-purple-100 text-purple-800';
+                                            $statusText = 'กำลังจัดส่ง';
+                                            break;
+                                        case 'delivered':
+                                            $statusClass = 'bg-indigo-100 text-indigo-800';
+                                            $statusText = 'จัดส่งแล้ว';
                                             break;
                                         case 'completed':
                                             $statusClass = 'bg-green-100 text-green-800';
@@ -79,9 +87,18 @@ $orders = getUserOrders($userId);
                                             $statusText = $order['status'];
                                     }
                                 ?>
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full <?php echo $statusClass; ?>">
-                                    <?php echo $statusText; ?>
-                                </span>
+                                <?php if (isAdmin()): ?>
+                                    <select onchange="updateOrderStatus(<?php echo $order['id']; ?>, this.value)" class="px-2 py-1 text-xs font-semibold rounded <?php echo $statusClass; ?>">
+                                        <option value="pending" <?php echo $order['status'] === 'pending' ? 'selected' : ''; ?>>รอดำเนินการ</option>
+                                        <option value="processing" <?php echo $order['status'] === 'processing' ? 'selected' : ''; ?>>กำลังเตรียมอาหาร</option>
+                                        <option value="completed" <?php echo $order['status'] === 'completed' ? 'selected' : ''; ?>>เสร็จสิ้น</option>
+                                        <option value="cancelled" <?php echo $order['status'] === 'cancelled' ? 'selected' : ''; ?>>ยกเลิก</option>
+                                    </select>
+                                <?php else: ?>
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full <?php echo $statusClass; ?>">
+                                        <?php echo $statusText; ?>
+                                    </span>
+                                <?php endif; ?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <button class="text-blue-600 hover:text-blue-900" onclick="toggleOrderDetails(<?php echo $order['id']; ?>)">
@@ -89,18 +106,18 @@ $orders = getUserOrders($userId);
                                 </button>
                             </td>
                         </tr>
-                        
+
                         <!-- Order Details (Hidden by default) -->
                         <tr id="order-details-<?php echo $order['id']; ?>" class="hidden bg-gray-50">
                             <td colspan="5" class="px-6 py-4">
                                 <div class="border-t border-gray-200 pt-4">
                                     <h4 class="text-sm font-semibold mb-2">รายละเอียดคำสั่งซื้อ #<?php echo $order['id']; ?></h4>
-                                    
+
                                     <?php
                                         // Get order items
                                         $orderItems = getOrderDetails($order['id']);
                                     ?>
-                                    
+
                                     <?php if (!empty($orderItems)): ?>
                                         <ul class="space-y-3">
                                             <?php foreach ($orderItems as $item): ?>
@@ -112,17 +129,17 @@ $orders = getUserOrders($userId);
                                                             <i class="fas fa-utensils text-gray-400"></i>
                                                         </div>
                                                     <?php endif; ?>
-                                                    
+
                                                     <div class="flex-1">
                                                         <div class="flex justify-between">
                                                             <div class="text-sm font-medium text-gray-900">
                                                                 <?php echo $item['food_name']; ?> x<?php echo $item['quantity']; ?>
                                                             </div>
                                                             <div class="text-sm text-gray-500">
-                                                                ฿<?php echo number_format($item['price'] * $item['quantity'], 2); ?>
+                                                                <?php echo number_format($item['price'] * $item['quantity'], 2); ?>฿
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <?php if (!empty($item['addons'])): ?>
                                                             <ul class="text-xs text-gray-500 mt-1">
                                                                 <?php foreach ($item['addons'] as $addon): ?>
@@ -135,7 +152,7 @@ $orders = getUserOrders($userId);
                                                                 <?php endforeach; ?>
                                                             </ul>
                                                         <?php endif; ?>
-                                                        
+
                                                         <?php if (!empty($item['special_instructions'])): ?>
                                                             <div class="text-xs text-gray-500 mt-1 italic">
                                                                 "<?php echo $item['special_instructions']; ?>"
@@ -145,15 +162,16 @@ $orders = getUserOrders($userId);
                                                 </li>
                                             <?php endforeach; ?>
                                         </ul>
-                                        
+
                                         <div class="border-t border-gray-200 mt-4 pt-4">
                                             <div class="flex justify-between text-sm">
-                                                <div>
-                                                    <p><span class="font-medium">ที่อยู่จัดส่ง:</span> <?php echo $order['address']; ?></p>
-                                                    <p><span class="font-medium">เบอร์โทรศัพท์:</span> <?php echo $order['phone']; ?></p>
+                                                <?php if (isAdmin()): ?>
+                                                <div class="text-left">
+                                                    <p class="font-medium">ผู้สั่งซื้อ: <?php echo htmlspecialchars($order['username']); ?></p>
                                                 </div>
+                                                <?php endif; ?>
                                                 <div class="text-right">
-                                                    <p class="font-semibold">ยอดรวมทั้งสิ้น: ฿<?php echo number_format($order['total_price'], 2); ?></p>
+                                                    <p class="font-semibold">ยอดรวมทั้งสิ้น: <?php echo number_format($order['total_price'] , 2); ?> ฿</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +186,7 @@ $orders = getUserOrders($userId);
             </table>
         </div>
     <?php endif; ?>
-    
+
     <div class="mt-4">
         <a href="index.php" class="text-primary hover:text-amber-600">
             <i class="fas fa-arrow-left mr-2"></i> กลับหน้าหลัก
@@ -177,13 +195,67 @@ $orders = getUserOrders($userId);
 </div>
 
 <script>
+function updateOrderStatus(orderId, newStatus) {
+    const select = event.target;
+    const originalValue = select.value;
+    
+    // ส่งคำสั่งซื้อทันทีเมื่อเลือกสถานะ
+    if (confirm('ยืนยันการอัพเดทสถานะคำสั่งซื้อ?')) {
+        fetch('update_order_status.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                status: newStatus
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update select element class based on new status
+                const statusClasses = {
+                    'pending': 'bg-yellow-100 text-yellow-800',
+                    'processing': 'bg-blue-100 text-blue-800',
+                    'out_for_delivery': 'bg-purple-100 text-purple-800',
+                    'delivered': 'bg-indigo-100 text-indigo-800',
+                    'completed': 'bg-green-100 text-green-800',
+                    'cancelled': 'bg-red-100 text-red-800'
+                };
+
+                // Remove all possible status classes
+                select.classList.remove(...Object.values(statusClasses));
+                // Add new status class
+                select.classList.add(statusClasses[newStatus]);
+                alert('อัพเดทสถานะคำสั่งซื้อเรียบร้อย');
+            } else {
+                alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+                select.value = originalValue;
+            }
+        })
+        .catch(error => {
+            alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
+            select.value = originalValue;
+        });
+    }
+}
+
 function toggleOrderDetails(orderId) {
     const detailsRow = document.getElementById('order-details-' + orderId);
-    
-    if (detailsRow.classList.contains('hidden')) {
-        detailsRow.classList.remove('hidden');
-    } else {
-        detailsRow.classList.add('hidden');
+    const button = document.querySelector(`button[onclick="toggleOrderDetails(${orderId})"]`);
+    const eyeIcon = button.querySelector('i');
+
+    if (detailsRow) {
+        if (detailsRow.classList.contains('hidden')) {
+            detailsRow.classList.remove('hidden');
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        } else {
+            detailsRow.classList.add('hidden');
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
     }
 }
 </script>

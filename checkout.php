@@ -3,13 +3,11 @@ $pageTitle = "ตะกร้าสินค้า - เตี๋ยวเรื
 include 'includes/header.php';
 
 
-
-// Redirect if not logged in
 if (!isLoggedIn()) {
     redirect('login.php');
 }
 
-// Initialize cart if not exists
+
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
@@ -17,36 +15,30 @@ if (!isset($_SESSION['cart'])) {
 $error = '';
 $success = '';
 
-// Process checkout
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $address = sanitize($_POST['address']);
-    $phone = sanitize($_POST['phone']);
-    
-    // Validate input
-    if (empty($address) || empty($phone)) {
-        $error = 'กรุณากรอกที่อยู่และเบอร์โทรศัพท์';
-    } elseif (empty($_SESSION['cart'])) {
-        $error = 'ตะกร้าสินค้าว่างเปล่า กรุณาเลือกสินค้าก่อน';
+    if(empty($_SESSION['cart'])) {
+        $error = 'รายการอาหารว่างเปล่า กรุณาเลือกอาหารก่อน';
     } else {
         try {
-            // Create order
+            
             $userId = $_SESSION['user_id'];
             $totalPrice = getCartTotal();
             $items = $_SESSION['cart'];
             
-            $orderId = createOrder($userId, $items, $totalPrice, $address, $phone);
+            $orderId = createOrder($userId, $items, $totalPrice);
             
             if ($orderId) {
-                // Clear cart after successful order
+                
                 $_SESSION['cart'] = [];
                 
-                // Set success message
-                $success = 'สั่งซื้อสำเร็จ! รหัสคำสั่งซื้อของคุณคือ #' . $orderId;
                 
-                // Redirect to order detail page
+                $success = 'สั่งอาหารสำเร็จ! รหัสคำสั่งซื้อของคุณคือ #' . $orderId;
+                
+                
                 redirect('your_orders.php?success=1');
             } else {
-                $error = 'เกิดข้อผิดพลาดในการสั่งซื้อ กรุณาลองใหม่อีกครั้ง';
+                $error = 'เกิดข้อผิดพลาดในการสั่ง กรุณาลองใหม่อีกครั้ง';
             }
         } catch (Exception $e) {
             $error = 'เกิดข้อผิดพลาด: ' . $e->getMessage();
@@ -56,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <h1 class="text-2xl font-bold mb-6">ตะกร้าสินค้า</h1>
+    <h1 class="text-2xl font-bold mb-6">ตะกร้าเมนู</h1>
     
     <?php if (!empty($error)): ?>
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -74,10 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="bg-white rounded-lg shadow-md p-6 text-center">
             <div class="text-gray-500 mb-4">
                 <i class="fas fa-shopping-cart text-5xl mb-4"></i>
-                <h2 class="text-xl font-semibold">ตะกร้าสินค้าว่างเปล่า</h2>
-                <p class="mb-4">เพิ่มสินค้าลงในตะกร้าเพื่อสั่งซื้อ</p>
+                <h2 class="text-xl font-semibold">ตะกร้าอาหารว่างเปล่า</h2>
+                <p class="mb-4">เพิ่มอาหารลงในตะกร้าเพื่อสั่ง</p>
                 <a href="index.php#menu" class="bg-primary text-white px-4 py-2 rounded hover:bg-amber-600 transition">
-                    เลือกซื้อสินค้า
+                    เลือกสั่งอาหาร
                 </a>
             </div>
         </div>
@@ -144,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 text-center text-sm text-gray-500">
-                                        ฿<?php echo number_format($item['price'], 2); ?>
+                                        <?php echo number_format($item['price'], 2); ?>฿
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex justify-center items-center">
@@ -160,7 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 text-center text-sm text-gray-500">
-                                        ฿<?php echo number_format($itemTotal, 2); ?>
+                                        <?php echo number_format($itemTotal, 2); ?> ฿
                                     </td>
                                     <td class="px-6 py-4 text-right">
                                         <a href="product-action.php?action=remove_from_cart&index=<?php echo $index; ?>" 
@@ -198,32 +190,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         
                         <div class="flex justify-between font-semibold text-gray-900 pt-2 border-t border-gray-200">
                             <span>ยอดรวมทั้งสิ้น</span>
-                            <span>฿<?php echo number_format(getCartTotal(), 2); ?></span>
+                            <span><?php echo number_format(getCartTotal(), 2); ?> ฿</span>
                         </div>
                     </div>
                     
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                        <div class="space-y-4">
-                            <div>
-                                <label for="address" class="block text-sm font-medium text-gray-700 mb-1">ที่อยู่จัดส่ง <span class="text-red-500">*</span></label>
-                                <textarea id="address" name="address" rows="3" required
-                                          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"></textarea>
-                            </div>
-                            
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">เบอร์โทรศัพท์ <span class="text-red-500">*</span></label>
-                                <input type="tel" id="phone" name="phone" required
-                                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary">
-                            </div>
-                        </div>
                         
                         <button type="submit" class="w-full bg-primary text-white py-3 mt-6 rounded-lg font-semibold hover:bg-amber-600 transition">
-                            <a href="your_orders.php">สั่งอาหาร - ฿<?php echo number_format(getCartTotal(), 2); ?></a>
+                            <a href="your_orders.php">สั่งอาหาร - <?php echo number_format(getCartTotal(), 2); ?> ฿</a>
                         </button>
-                        
-                        <p class="text-xs text-gray-500 mt-3 text-center">
-                            การกดสั่งอาหารหมายถึงคุณยอมรับ<a href="#" class="text-primary">เงื่อนไขการใช้บริการ</a>ของเรา
-                        </p>
                     </form>
                 </div>
             </div>

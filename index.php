@@ -26,7 +26,7 @@ $allFoods = getAllFoods();
 <!--Picture header start -->
 <div class="carousel">
         <!-- list item -->
-        <div class="list">
+        <div class="list" >
             <div class="item">
                 <img src="images/img/00R.jpg">
                 <div class="content">
@@ -214,7 +214,7 @@ $allFoods = getAllFoods();
                     </h3>
                     <p class="text-gray-600 text-sm mb-2"><?php echo htmlspecialchars($food['description']); ?></p>
                     <div class="flex justify-between items-center">
-                        <span class="text-lg font-bold text-primary">฿<?php echo number_format($food['price'], 2); ?></span>
+                        <span class="text-lg font-bold text-primary"><?php echo number_format($food['price'], 2); ?> ฿</span>
                         <a href="product-action.php?action=view&id=<?php echo $food['id']; ?>" class="bg-primary text-white px-4 py-2 rounded hover:bg-amber-600 transition">สั่งเลย</a>
                     </div>
                 </div>
@@ -227,39 +227,6 @@ $allFoods = getAllFoods();
     </div>
 </section>
 <?php endif; ?>
-
-<!--Seller number 1-->
-<!-- <section class="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold mb-8 text-center">ทำไมต้องเลือกเรา</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <div class="inline-flex items-center justify-center p-3 bg-primary-50 text-primary rounded-full mb-4">
-                    <i class="fas fa-utensils text-2xl text-primary"></i>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">รสชาติต้นตำรับ</h3>
-                <p class="text-gray-600">สูตรเด็ดที่ส่งต่อกันมารุ่นสู่รุ่น คัดสรรเฉพาะวัตถุดิบคุณภาพเยี่ยม</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <div class="inline-flex items-center justify-center p-3 bg-primary-50 text-primary rounded-full mb-4">
-                    <i class="fas fa-truck text-2xl text-primary"></i>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">จัดส่งรวดเร็ว</h3>
-                <p class="text-gray-600">บริการส่งอาหารถึงมือคุณภายใน 30 นาที รับประกันความอร่อย</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <div class="inline-flex items-center justify-center p-3 bg-primary-50 text-primary rounded-full mb-4">
-                    <i class="fas fa-clock text-2xl text-primary"></i>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">เปิดบริการทุกวัน</h3>
-                <p class="text-gray-600">เปิดให้บริการทุกวัน 10:00 - 21:00 น. พร้อมเสิร์ฟความอร่อยให้คุณตลอดทั้งวัน</p>
-            </div>
-        </div>
-    </div>
-</section> -->
 
 <!-- Menu -->
 <section id="menu" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -300,7 +267,7 @@ $allFoods = getAllFoods();
                 </h3>
                 <p class="text-gray-600 text-sm mb-2"><?php echo htmlspecialchars($food['description']); ?></p>
                 <div class="flex justify-between items-center">
-                    <span class="text-lg font-bold text-primary">฿<?php echo number_format($food['price'], 2); ?></span>
+                    <span class="text-lg font-bold text-primary"><?php echo number_format($food['price'], 2); ?> ฿</span>
                     <a href="product-action.php?action=view&id=<?php echo $food['id']; ?>" class="bg-primary text-white px-4 py-2 rounded hover:bg-amber-600 transition">สั่งเลย</a>
                 </div>
             </div>
@@ -315,13 +282,8 @@ $allFoods = getAllFoods();
 
 <section class="bg-primary py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">สมัครรับข้อมูลโปรโมชั่น</h2>
-        <p class="text-white mb-6">รับส่วนลดพิเศษและข่าวสารโปรโมชั่นใหม่ๆ ก่อนใคร</p>
-
-        <form class="flex flex-col sm:flex-row justify-center gap-2">
-            <input type="email" placeholder="อีเมลของคุณ" class="px-4 py-3 rounded-lg sm:w-64 w-full focus:outline-none">
-            <button type="submit" class="bg-white text-primary font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 transition sm:w-auto w-full">สมัครรับข่าวสาร</button>
-        </form>
+        <h2 class="text-2xl font-bold text-white mb-4">เตี๋ยวเรือเจ๊เต้ยยินดีต้อนรับ</h2>
+        <p class="text-white mb-6">อร่อยจบครบทุกมื้อ ที่เจ๊เต้ย</p>
     </div>
 </section>
 

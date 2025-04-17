@@ -19,47 +19,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // --- Sidebar ---
-    const sidebars = {
-        favorites: document.getElementById('favoritesSidebar'),
-        account: document.getElementById('accountSidebar'),
-        notification: document.getElementById('notificationSidebar'),
-        contact: document.getElementById('contactSidebar'),
-    };
+    // const sidebars = {
+    //     favorites: document.getElementById('favoritesSidebar'),
+    //     account: document.getElementById('accountSidebar'),
+    //     notification: document.getElementById('notificationSidebar'),
+    //     contact: document.getElementById('contactSidebar'),
+    // };
 
-    function closeAllSidebars() {
-        for (let key in sidebars) {
-            if (sidebars[key]) {
-                sidebars[key].classList.add('translate-x-full');
-            }
-        }
-    }
+    // function closeAllSidebars() {
+    //     for (let key in sidebars) {
+    //         if (sidebars[key]) {
+    //             sidebars[key].classList.add('translate-x-full');
+    //         }
+    //     }
+    // }
 
-    function openSidebar(key) {
-        closeAllSidebars();
-        if (sidebars[key]) {
-            sidebars[key].classList.remove('translate-x-full');
-        }
-    }
+    // function openSidebar(key) {
+    //     closeAllSidebars();
+    //     if (sidebars[key]) {
+    //         sidebars[key].classList.remove('translate-x-full');
+    //     }
+    // }
 
     // ปุ่มเปิด sidebar
-    const toggleSidebarButtons = {
-        toggleFavorites: 'favorites',
-        toggleAccount: 'account',
-        toggleNotification: 'notification',
-        toggleContact: 'contact',
-    };
+    // const toggleSidebarButtons = {
+    //     toggleFavorites: 'favorites',
+    //     toggleAccount: 'account',
+    //     toggleNotification: 'notification',
+    //     toggleContact: 'contact',
+    // };
 
-    for (let buttonId in toggleSidebarButtons) {
-        const btn = document.getElementById(buttonId);
-        const key = toggleSidebarButtons[buttonId];
-        if (btn && key) {
-            btn.addEventListener('click', () => openSidebar(key));
-        }
-    }
+    // for (let buttonId in toggleSidebarButtons) {
+    //     const btn = document.getElementById(buttonId);
+    //     const key = toggleSidebarButtons[buttonId];
+    //     if (btn && key) {
+    //         btn.addEventListener('click', () => openSidebar(key));
+    //     }
+    // }
 
-    // ปุ่มปิด sidebar
-    document.querySelectorAll('.closeSidebar').forEach(button => {
-        button.addEventListener('click', closeAllSidebars);
-    });
+    // // ปุ่มปิด sidebar
+    // document.querySelectorAll('.closeSidebar').forEach(button => {
+    //     button.addEventListener('click', closeAllSidebars);
+    // });
 });
 

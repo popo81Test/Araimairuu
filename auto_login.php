@@ -1,4 +1,3 @@
-<!--remember me -->
 
 <?php
 include 'config/foodOrder.php';
@@ -8,8 +7,8 @@ session_start();
 if (isset($_POST['username']) && isset($_POST['token'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $token = $_POST['token'];
-    $expire = time() + (86400 * 30); // Expected expire time (should match the one set during login)
-    $expected_token = md5($username . $expire . 'your_secret_key'); // สร้าง token ที่คาดหวัง
+    $expire = time() + (86400 * 30); 
+    $expected_token = md5($username . $expire . 'your_secret_key'); 
 
     if ($token === $expected_token) {
         $query = "SELECT * FROM users WHERE username = '$username'";
