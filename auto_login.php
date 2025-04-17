@@ -18,7 +18,9 @@ if (isset($_POST['username']) && isset($_POST['token'])) {
             $user = mysqli_fetch_assoc($result);
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
+            
             echo json_encode(['success' => true]);
             exit();
         }

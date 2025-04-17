@@ -238,7 +238,7 @@ function createOrder($userId, $items, $totalPrice) {
     }
 }
 
-// Function to get user orders
+
 function getUserOrders($userId) {
     global $conn;
     $userId = sanitize($userId);
@@ -273,7 +273,6 @@ function getOrderDetails($orderId) {
 
     $items = [];
     while ($row = mysqli_fetch_assoc($result)) {
-        // Get addons for this order item
         $orderItemId = $row['id'];
         $addonQuery = "SELECT oia.*, ao.name as addon_name, ao.type as addon_type 
                       FROM order_item_addons oia 
@@ -293,4 +292,6 @@ function getOrderDetails($orderId) {
 
     return $items;
 }
+
+
 ?>
