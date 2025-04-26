@@ -68,5 +68,5 @@ echo '</div>';
 echo '</main>';
 echo '<script src="Js/comm.js"></script>';
 
-include 'includes/footer.php'; // ถ้ามี footer
+include 'includes/footer.php'; 
 ?>

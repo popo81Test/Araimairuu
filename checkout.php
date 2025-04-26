@@ -21,22 +21,64 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'รายการอาหารว่างเปล่า กรุณาเลือกอาหารก่อน';
     } else {
         try {
-            
+
             $userId = $_SESSION['user_id'];
             $totalPrice = getCartTotal();
             $items = $_SESSION['cart'];
-            
+
             $orderId = createOrder($userId, $items, $totalPrice);
-            
+
             if ($orderId) {
-                
+
                 $_SESSION['cart'] = [];
-                
-                
-                $success = 'สั่งอาหารสำเร็จ! รหัสคำสั่งซื้อของคุณคือ #' . $orderId;
-                
-                
-                redirect('your_orders.php?success=1');
+
+                // --- โค้ด JavaScript สำหรับ SweetAlert2 และเปิด Notification Sidebar ---
+                ?>
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'สั่งอาหารสำเร็จ!' ,
+                            text: 'ขอบคุณที่ใช้บริการของเรา 😊',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonColor: '#f59e0b',
+                            didRender: () => {
+                                const confirmButton = Swal.getConfirmButton();
+                                if (confirmButton) {
+                                    confirmButton.addEventListener('mouseover', () => {
+                                        confirmButton.style.backgroundColor = 'rgb(253, 69, 69)';
+                                        confirmButton.style.borderColor = 'rgb(253, 69, 69)';
+                                        confirmButton.classList.add('animate-button-shake');
+                                    });
+                                    confirmButton.addEventListener('mouseout', () => {
+                                        confirmButton.style.backgroundColor = '#f59e0b'; // สีเดิม
+                                        confirmButton.style.borderColor = '#f59e0b'; // สีเดิม
+                                        confirmButton.classList.remove('animate-button-shake');
+                                    });
+                                }
+                            }
+                        }).then((result) => {
+                            // หลังจากแสดง SweetAlert แล้วค่อย Redirect และเปิด Notification Sidebar
+                            if (result.isConfirmed || result.isDismissed) {
+                                const url = new URL(window.location);
+                                url.searchParams.delete('success');
+                                window.history.replaceState({}, document.title, url.pathname + url.search);
+                                window.location.href = 'index.php';
+
+                                // สั่งเปิด Notification Sidebar ทันทีหลังจาก Redirect
+                                setTimeout(function() {
+                                    const notificationSidebar = document.getElementById('notificationSidebar');
+                                    if (notificationSidebar) {
+                                        notificationSidebar.classList.remove('translate-x-full');
+                                    }
+                                }, 100); // Small delay to ensure DOM is updated
+                            }
+                        });
+                    });
+                </script>
+                <?php
+
             } else {
                 $error = 'เกิดข้อผิดพลาดในการสั่ง กรุณาลองใหม่อีกครั้ง';
             }
@@ -46,6 +88,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<style>
+@keyframes button-shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-1px); }
+    50% { transform: translateX(1px); }
+    75% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
+}
+
+.animate-button-shake {
+    animation: button-shake 0.2s ease-in-out infinite;
+}
+</style>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <h1 class="text-2xl font-bold mb-6">ตะกร้าเมนู</h1>
@@ -185,33 +241,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="space-y-3 mb-6">
                         <div class="flex justify-between text-gray-600">
                             <span>จำนวนสินค้า</span>
-                            <span><?php echo getCartItemCount(); ?> </span>
+                            <span><?php echo getCartItemCount(); ?> ชิ้น</span>
                         </div>
                         
                         <div class="flex justify-between font-semibold text-gray-900 pt-2 border-t border-gray-200">
                             <span>ยอดรวมทั้งสิ้น</span>
-                            <span><?php echo number_format(getCartTotal(), 2); ?> ฿</span>
+                            <span>฿<?php echo number_format(getCartTotal(), 2); ?></span>
                         </div>
                     </div>
                     
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                         
                         <button type="submit" class="w-full bg-primary text-white py-3 mt-6 rounded-lg font-semibold hover:bg-amber-600 transition">
-                            <a href="your_orders.php">สั่งอาหาร - <?php echo number_format(getCartTotal(), 2); ?> ฿</a>
+                            สั่งอาหาร - ฿<?php echo number_format(getCartTotal(), 2); ?>
                         </button>
+                        
+                        
+                        <p class="text-xs text-gray-500 mt-3 text-center">
+                            การกดสั่งอาหารหมายถึงคุณยอมรับ<a href="#" class="text-primary">เงื่อนไขการใช้บริการ</a>ของเรา
+                        </p>
                     </form>
                 </div>
             </div>
-        </div>
     <?php endif; ?>
 </div>
 <head>
 <style>
     .max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8.py-8 {
-        transform: scale(1.0); /* 1.7 คือ 170% ของขนาดเดิม */
-        transform-origin: top left; /* ให้การปรับขนาดเริ่มต้นจากมุมบนซ้าย */
-        width: calc(100% / 1.0); /* ปรับความกว้างเพื่อชดเชยการขยาย */
-        height: calc(100% / 1.0); /* ปรับความสูงเพื่อชดเชยการขยาย (ถ้าจำเป็น) */
+        transform: scale(1.0); 
+        transform-origin: top left; 
+        width: calc(100% / 1.0); 
+        height: calc(100% / 1.0); 
         margin-bottom:20%;
     }
 </style>

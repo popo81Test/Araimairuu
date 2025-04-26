@@ -8,7 +8,7 @@ if (!isAdmin()) {
     redirect('index.php');
 }
 
-// Initialize variables
+
 $error = '';
 $success = '';
 $formMode = 'add';

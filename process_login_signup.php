@@ -7,7 +7,7 @@ mysqli_set_charset($conn, "utf8");
 // ฟังก์ชัน login
 function loginUser($conn, $username, $password) {
     $username = mysqli_real_escape_string($conn, $username);
-    $password_hashed = md5($password); // แนะนำใช้ bcrypt แทน
+    $password_hashed = md5($password); 
 
     $query = "SELECT id, username, password, role FROM users WHERE username = '$username' AND password = '$password_hashed'";
     $result = mysqli_query($conn, $query);
@@ -15,12 +15,12 @@ function loginUser($conn, $username, $password) {
     return (mysqli_num_rows($result) > 0) ? mysqli_fetch_assoc($result) : false;
 }
 
-// ✅ ฟังก์ชัน signup รองรับ phone ด้วย
+
 function registerUser($conn, $name, $email, $password, $phone) {
     $name = mysqli_real_escape_string($conn, $name);
     $email = mysqli_real_escape_string($conn, $email);
     $phone = mysqli_real_escape_string($conn, $phone);
-    $password_hashed = md5($password); // แนะนำใช้ bcrypt แทน
+    $password_hashed = md5($password); 
 
     // ตรวจสอบชื่อผู้ใช้ซ้ำ
     $checkUsernameQuery = "SELECT * FROM users WHERE username = '$name'";
@@ -50,7 +50,6 @@ function registerUser($conn, $name, $email, $password, $phone) {
         return "Password already exists.";
     }
 
-    // ✅ เพิ่ม phone เข้าไปใน query
     $query = "INSERT INTO users (username, email, password, phone, firstname, lastname, created_at, role)
               VALUES ('$name', '$email', '$password_hashed', '$phone', '$name', '$name', NOW(), 'user')";
 
@@ -82,7 +81,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
             exit();
         } else {
-            $_SESSION['login_error'] = "Invalid username or password.";
+            
+            $_SESSION['login_error'] = "Invalid username or password";
             header("Location: logSign.php");
             exit();
         }
@@ -90,49 +90,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($_POST['action'] == 'signup') {
         $name = $_POST['name'];
         $email = $_POST['email'];
-        $phone = $_POST['phone']; // ✅ รับ phone จาก form
+        $phone = $_POST['phone']; 
         $password = $_POST['password'];
 
-        // ✅ ส่ง phone ไปที่ฟังก์ชัน registerUser
         $registerResult = registerUser($conn, $name, $email, $password, $phone);
         if ($registerResult === true) {
-            $_SESSION['signup_success'] = "Registration successful.";
+            $_SESSION['signup_success'] = "สมัครสมาชิกสำเร็จ";
             header("Location: logSign.php");
             exit();
         } else {
             $_SESSION['signup_error'] = $registerResult;
             $errorMsg = addslashes($registerResult);
             echo "
-                <html><head>
-                <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-                <style>
-                    body {
-                        background-color: #fff7f0;
-                        font-family: 'Prompt', sans-serif;
-                    }
-                </style>
-                <link href='https://fonts.googleapis.com/css2?family=Prompt&display=swap' rel='stylesheet'>
-    
-                </head><body>
-                <script>
-                    Swal.fire({
-                    icon: 'error',
-                    title: 'สมัครไม่สำเร็จ',
-                    text: '$errorMsg',
-                    confirmButtonText: 'กลับไปแก้ไข',
-                    background: '#fff0e6',
-                    color: '#b90000',
-                    iconColor: '#ff5722',
-                    confirmButtonColor: '#ff9800',
-                    customClass: {
-                    popup: 'rounded-xl shadow-lg'
-                    }
-                }).then(() => {
-                window.location.href = 'logSign.php';
-                });
-            </script>
-            </body></html>
-            ";
+<html><head>
+<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+<link href='https://fonts.googleapis.com/css2?family=Prompt&display=swap' rel='stylesheet'>
+<style>
+    body {
+        background-color: #fdfcfb;
+        font-family: 'Prompt', sans-serif;
+    }
+</style>
+</head><body>
+
+<script>
+Swal.fire({
+    icon: 'error',
+    title: 'สมัครไม่สำเร็จ',
+    text: '$errorMsg',
+    confirmButtonText: 'กลับไปแก้ไข',
+    background: '#ffffff',
+    color: '#d62828', // โทนแดงญี่ปุ่น
+    iconColor: '#d62828',
+    confirmButtonColor: '#f77f00',
+    customClass: {
+        popup: 'rounded-xl shadow-md border border-[#f0f0f0]'
+    }
+}).then(() => {
+    window.location.href = 'logSign.php';
+});
+</script>
+
+</body></html>
+";
+
             exit();
         }
     }

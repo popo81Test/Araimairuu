@@ -22,19 +22,18 @@ if ($result) {
 $allFoods = getAllFoods();
 ?>
 
-<!-- Upper start -->
-<!--Picture header start -->
+
 <div class="carousel">
         <!-- list item -->
         <div class="list" >
             <div class="item">
                 <img src="images/img/00R.jpg">
                 <div class="content">
-                    <div class="author">เตี๋ยวเรือเจ้เต้ย</div>
+                    <div class="author">เตี๋ยวเรือเจ๊เต้ย</div>
                     <div class="title">อร่อยครบ จบทุกมื้อ</div>
                     <div class="topic">ก๋วยเตี๋ยวเรือ</div>
                     <div class="des">
-                        <!-- lorem 50 -->
+                        
                         น้ำซุปเข้มข้น หอมสมุนไพร เส้นเหนียวนุ่ม พร้อมเนื้อหมู/เนื้อวัวเปื่อยละลายในปาก เจเต้ยปรุงด้วยใจทุกชาม อร่อยจนหยดสุดท้าย
                     </div>
                     <div class="buttons">
@@ -49,7 +48,7 @@ $allFoods = getAllFoods();
             <div class="item">
                 <img src="images/img/12fo.jpg">
                 <div class="content">
-                    <div class="author">เตี๋ยวเรือเจ้เต้ย</div>
+                    <div class="author">เตี๋ยวเรือเจ๊เต้ย</div>
                     <div class="title">อร่อยครบ จบทุกมื้อ</div>
                     <div class="topic">เย็นตาโฟ</div>
                     <div class="des">
@@ -66,7 +65,7 @@ $allFoods = getAllFoods();
             <div class="item">
                 <img src="images/img/8tom.jpg">
                 <div class="content">
-                    <div class="author">เตี๋ยวเรือเจ้เต้ย</div>
+                    <div class="author">เตี๋ยวเรือเจ๊เต้ย</div>
                     <div class="title">อร่อยครบ จบทุกมื้อ</div>
                     <div class="topic">ก๋วยเตี๋ยวต้มยำ</div>
                     <div class="des">
@@ -83,7 +82,7 @@ $allFoods = getAllFoods();
             <div class="item">
                 <img src="images/img/7kmg.jpg">
                 <div class="content">
-                    <div class="author">เตี๋ยวเรือเจ้เต้ย</div>
+                    <div class="author">เตี๋ยวเรือเจ๊เต้ย</div>
                     <div class="title">อร่อยครบ จบทุกมื้อ</div>
                     <div class="topic">อาหารจานเดียว</div>
                     <div class="des">
@@ -100,7 +99,7 @@ $allFoods = getAllFoods();
             <div class="item">
                 <img src="images/img/9nam.jpg">
                 <div class="content">
-                    <div class="author">เตี๋ยวเรือเจ้เต้ย</div>
+                    <div class="author">เตี๋ยวเรือเจ๊เต้ย</div>
                     <div class="title">อร่อยครบ จบทุกมื้อ</div>
                     <div class="topic">เครื่องดื่ม</div>
                     <div class="des">
@@ -117,7 +116,7 @@ $allFoods = getAllFoods();
             <div class="item">
                 <img src="images/img/11big.jpg">
                 <div class="content">
-                    <div class="author">เตี๋ยวเรือเจ้เต้ย</div>
+                    <div class="author">เตี๋ยวเรือเจ๊เต้ย</div>
                     <div class="title">อร่อยครบ จบทุกมื้อ</div>
                     <div class="topic">ของหวาน</div>
                     <div class="des">
@@ -178,17 +177,17 @@ $allFoods = getAllFoods();
                 </div>
             </div>
         </div>
-        <!-- next prev -->
+        
 
         <div class="arrows">
             <button id="prev"><</button>
             <button id="next">></button>
         </div>
-        <!-- time running -->
+        
         <div class="time"></div>
     </div>
 
-<!-- Upper End -->
+
 
 
 <!--recommend-->
@@ -296,13 +295,10 @@ $allFoods = getAllFoods();
 </div>
 
 
-<!--Picture Js-->
-<script src="Js/Pic.js"></script>
 
-<!--Recommend menu ?-->
-<script src="Js/filterCategory.js"></script>
-     
-<!--modal & heart -->
+
+<script src="Js/Pic.js"></script>
+<script src="Js/filterCategory.js"></script>   
 <script src="Js/comm.js"></script>
 
 

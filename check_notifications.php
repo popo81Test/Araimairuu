@@ -1,194 +1,286 @@
 <?php
-// --- เริ่มต้น Session และ Output Buffering ---
-if (session_status() == PHP_SESSION_NONE) {
+
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-ob_start();
 
-// --- Include ไฟล์ที่จำเป็น ---
-require_once(__DIR__ . '/functions.php'); // ไฟล์รวมฟังก์ชันของคุณ
-require_once(__DIR__ . '/../config/foodOrder.php'); // ไฟล์ Config หรือเชื่อมต่อ DB
 
-// --- การตั้งค่า ---
-$notificationLimit = 5; // จำนวนการแจ้งเตือนล่าสุดที่จะดึงมา
-$defaultLastViewTime = 0; // ถ้าไม่เคยดู ถือว่าเป็น 0 เพื่อให้ notification ทั้งหมดเป็น new ในครั้งแรก
+require_once(__DIR__ . '/includes/functions.php'); 
+require_once(__DIR__ . '/config/foodOrder.php'); 
 
-// --- ฟังก์ชันช่วยเหลือ (ถ้ายังไม่มีใน functions.php) ---
-if (!function_exists('getStatusTextThai')) {
-    function getStatusTextThai($status) {
-        switch ($status) {
-            case 'pending': return 'รอดำเนินการ';
-            case 'processing': return 'กำลังเตรียมอาหาร';
-            case 'completed': return 'เสร็จแล้ว';
-            case 'cancelled': return 'ยกเลิก';
-            default: return ucfirst($status);
-        }
-    }
+function log_notification_message($message) {
+    $logFile = __DIR__ . '/notification.log';
+    $timestamp = date('Y-m-d H:i:s');
+    error_log("[{$timestamp}] {$message}\n", 3, $logFile);
 }
 
-if (!function_exists('timeAgoThai')) {
-    function timeAgoThai($timestamp) {
-        if ($timestamp <= 0) return "ไม่ระบุเวลา";
-        $currentTime = time();
-        $timeDiff = $currentTime - $timestamp;
-
-        if ($timeDiff < 60) { return "เมื่อสักครู่"; }
-        elseif ($timeDiff < 3600) { $minutes = round($timeDiff / 60); return $minutes . " นาทีที่แล้ว"; }
-        elseif ($timeDiff < 86400) { $hours = round($timeDiff / 3600); return $hours . " ชั่วโมงที่แล้ว"; }
-        elseif ($timeDiff < 604800) { $days = round($timeDiff / 86400); return $days . " วันที่แล้ว"; }
-        else { return date('d/m/Y H:i', $timestamp); }
-    }
-}
-// --- จบ Helper Functions ---
-
-header('Content-Type: application/json'); // ตั้งค่า header เป็น JSON
 
 $response = [
     'success' => false,
-    'count' => 0,       // จำนวน notification ใหม่ (ก่อน mark read)
-    'hasNew' => false,  // มีอันใหม่หรือไม่ (ก่อน mark read)
-    'orders' => [],     // รายการ notification ล่าสุด
-    'latestOrder' => null, // อันใหม่ล่าสุด (ก่อน mark read)
-    'message' => ''
+    'message' => '',
+    'count' => 0,
+    'hasNew' => false,
+    'orders' => [],
+    'latestOrderStatus' => '' 
 ];
 
-// 1. ตรวจสอบว่า User Login หรือยัง
+// Check if user is logged in
 if (!function_exists('isLoggedIn') || !isLoggedIn()) {
     $response['message'] = 'User not logged in.';
-    ob_end_clean();
+    log_notification_message("Attempt to check notifications without login.");
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit;
+}
+
+// Check for user_id in session
+if (!isset($_SESSION['user_id'])) {
+    $response['message'] = 'User not authenticated.';
+    log_notification_message("User ID not found in session.");
+    header('Content-Type: application/json');
+    http_response_code(401); 
     echo json_encode($response);
     exit;
 }
 
 $userId = $_SESSION['user_id'];
+$notificationLimit = 5; 
 
-// 2. ดึงเวลาที่ User ดู Notification ล่าสุดจาก Session
-$lastViewTime = isset($_SESSION['last_notification_view_time']) ? (int)$_SESSION['last_notification_view_time'] : $defaultLastViewTime;
 
-// 3. ตรวจสอบว่ามีการร้องขอ Mark as Read หรือไม่
-$markAsRead = isset($_GET['markAsRead']) && $_GET['markAsRead'] == '1';
+$lastViewTime = 0; 
 
-// 4. ดึงข้อมูล Order ล่าสุดจากฐานข้อมูล
-$recentOrders = [];
-// ใช้ฟังก์ชันที่คุณมี (ควรดึง items_text มาด้วยเพื่อ performance)
-if (function_exists('getUserRecentOrdersWithDetails')) {
-     $recentOrders = getUserRecentOrdersWithDetails($userId, $notificationLimit);
-} elseif (function_exists('getUserRecentOrders')) {
-    $recentOrders = getUserRecentOrders($userId, $notificationLimit);
-} // เพิ่ม fallback อื่นๆ ถ้าจำเป็น
-
-// 5. ประมวลผล Orders และนับ Notification ใหม่
-$newNotificationsCount = 0;
-$ordersForJson = [];
-$latestNewOrder = null;
-$latestTimestamp = 0; // เก็บ timestamp ล่าสุด
-
-if (!empty($recentOrders)) {
-    foreach ($recentOrders as $order) {
-        $orderTimestamp = isset($order['updated_at']) ? strtotime($order['updated_at']) : (isset($order['created_at']) ? strtotime($order['created_at']) : 0);
-        if ($orderTimestamp <= 0) continue;
-
-        if ($orderTimestamp > $latestTimestamp) {
-             $latestTimestamp = $orderTimestamp; // อัพเดท timestamp ล่าสุดที่เจอ
-        }
-
-        // **สำคัญ:** ตรวจสอบว่าเป็น "ใหม่" หรือไม่ โดยเทียบกับ *ก่อน* เวลาที่จะ mark read
-        $isNew = ($orderTimestamp > $lastViewTime);
-
-        if ($isNew) {
-            $newNotificationsCount++;
-            // เก็บ order ใหม่ล่าสุด (อันแรกที่เจอใน loop เพราะเรียงตามเวลาล่าสุดแล้ว)
-            if ($latestNewOrder === null) {
-                // เก็บข้อมูลดิบก่อน เพื่อ prepare ทีหลัง
-                 $latestNewOrder = $order;
-                 $latestNewOrder['calculated_timestamp'] = $orderTimestamp; // เก็บ timestamp ที่คำนวณแล้ว
+if (isset($_SESSION['last_notification_view_time']) && $_SESSION['last_notification_view_time'] > 0) {
+    $lastViewTime = (int)$_SESSION['last_notification_view_time'];
+    
+} else {
+    
+    $fetchSql = "SELECT last_notification_view_time FROM users WHERE id = ?";
+    $fetchStmt = $conn->prepare($fetchSql);
+    if ($fetchStmt) {
+        $fetchStmt->bind_param("i", $userId);
+        if ($fetchStmt->execute()) {
+            $result = $fetchStmt->get_result();
+            if ($row = $result->fetch_assoc()) {
+                $dbTime = (int)$row['last_notification_view_time'];
+                if ($dbTime > 0) {
+                    $lastViewTime = $dbTime;
+                    $_SESSION['last_notification_view_time'] = $lastViewTime; 
+                    
+                } else {
+                     
+                     if (!isset($_SESSION['last_notification_view_time'])) { $_SESSION['last_notification_view_time'] = 0; }
+                }
+            } else {
+                
+                if (!isset($_SESSION['last_notification_view_time'])) { $_SESSION['last_notification_view_time'] = 0; }
             }
+        } else {
+            log_notification_message("User $userId: Failed to execute fetch lastViewTime query: " . $fetchStmt->error);
+            if (!isset($_SESSION['last_notification_view_time'])) { $_SESSION['last_notification_view_time'] = 0; }
+        }
+        $fetchStmt->close();
+    } else {
+         log_notification_message("User $userId: Failed to prepare statement for fetching user notification time: " . $conn->error);
+         if (!isset($_SESSION['last_notification_view_time'])) { $_SESSION['last_notification_view_time'] = 0; }
+    }
+}
+
+
+if (isset($_GET['markAsRead']) && $_GET['markAsRead'] == '1') {
+    log_notification_message("User $userId: Marking notifications as read.");
+
+    $latestOrderTime = $lastViewTime; 
+    $ordersToConsiderForMarking = [];
+
+    if (function_exists('isAdmin') && isAdmin()) {
+        // Admin:
+        $adminMarkStmt = $conn->prepare("SELECT MAX(created_at) as max_created, MAX(updated_at) as max_updated FROM (SELECT created_at, updated_at FROM orders ORDER BY created_at DESC LIMIT ?) as recent");
+        if($adminMarkStmt) {
+            $adminMarkStmt->bind_param("i", $notificationLimit);
+             if($adminMarkStmt->execute()) {
+                 $markResult = $adminMarkStmt->get_result();
+                 if ($row = $markResult->fetch_assoc()) {
+                     $maxCreated = isset($row['max_created']) ? strtotime($row['max_created']) : 0;
+                     $maxUpdated = isset($row['max_updated']) ? strtotime($row['max_updated']) : 0;
+                     $latestOrderTime = max($latestOrderTime, $maxCreated, $maxUpdated);
+                 }
+             } else {
+                log_notification_message("Admin $userId: Failed execute query to find latest order time: " . $adminMarkStmt->error);
+             }
+            $adminMarkStmt->close();
+        } else {
+            log_notification_message("Admin $userId: Failed prepare query to find latest order time: " . $conn->error);
         }
 
-        // เตรียมข้อมูลสำหรับ JSON response
-        $orderData = [
-            'id' => $order['id'],
-            'status' => $order['status'],
-            'is_new' => $isNew, // สถานะใหม่ *ก่อน* การ mark read ครั้งนี้
-            'status_text' => getStatusTextThai($order['status']),
-            'time_ago' => timeAgoThai($orderTimestamp),
-            'items_text' => isset($order['items_text']) ? $order['items_text'] : 'รายการอาหาร...', // ใช้ที่ดึงมา หรือ default
-             // ส่ง timestamp ไปด้วยเผื่อ JS อยากใช้เรียงลำดับเอง
-            'timestamp' => $orderTimestamp
-        ];
-
-        // ถ้าไม่ได้ดึง items_text มาใน query แรก (ไม่แนะนำด้าน performance)
-        if (!isset($order['items_text']) && function_exists('getOrderDetails')) {
-             try {
-                 $orderItems = getOrderDetails($order['id']);
-                 if (!empty($orderItems)) {
-                    $foodNames = array_column($orderItems, 'food_name');
-                    $itemsSummary = implode(', ', array_slice($foodNames, 0, 2));
-                    if (count($foodNames) > 2) { $itemsSummary .= ' และอื่นๆ'; }
-                    $orderData['items_text'] = $itemsSummary;
+    } else {
+        // Non-Admin:
+        if (function_exists('getUserRecentOrdersWithDetails')) {
+             $ordersToConsiderForMarking = getUserRecentOrdersWithDetails($userId, $notificationLimit);
+             foreach ($ordersToConsiderForMarking as $order) {
+                 $timestamp = isset($order['updated_at']) ? strtotime($order['updated_at']) : (isset($order['created_at']) ? strtotime($order['created_at']) : 0);
+                 if ($timestamp > $latestOrderTime) {
+                     $latestOrderTime = $timestamp;
                  }
-             } catch (Exception $e) {
-                 error_log("Error getting order details for order ID {$order['id']}: " . $e->getMessage());
-                 $orderData['items_text'] = 'เกิดข้อผิดพลาดในการโหลดรายการ';
              }
         }
-
-        $ordersForJson[] = $orderData;
     }
-     // Prepare ข้อมูลสำหรับ latestNewOrder (ถ้ามี)
-     if ($latestNewOrder !== null) {
-         $latestNewOrder['status_text'] = getStatusTextThai($latestNewOrder['status']);
-         // หา items_text สำหรับ latestNewOrder ด้วยวิธีเดียวกับใน loop
-         if (!isset($latestNewOrder['items_text']) && function_exists('getOrderDetails')) {
-             try {
-                 $latestOrderItems = getOrderDetails($latestNewOrder['id']);
-                  if (!empty($latestOrderItems)) {
-                     $latestFoodNames = array_column($latestOrderItems, 'food_name');
-                     $latestItemsSummary = implode(', ', array_slice($latestFoodNames, 0, 2));
-                     if (count($latestFoodNames) > 2) { $latestItemsSummary .= ' และอื่นๆ'; }
-                     $latestNewOrder['items_text'] = $latestItemsSummary;
-                  } else { $latestNewOrder['items_text'] = 'รายการอาหาร...';}
-             } catch (Exception $e) { $latestNewOrder['items_text'] = 'เกิดข้อผิดพลาด'; }
-         } elseif (!isset($latestNewOrder['items_text'])) {
-             $latestNewOrder['items_text'] = 'รายการอาหาร...';
-         }
-     }
 
 
-}
+    log_notification_message("User $userId: Determined latestOrderTime for marking as read: " . ($latestOrderTime > 0 ? date('Y-m-d H:i:s', $latestOrderTime) : '0'));
 
-// 6. อัปเดตเวลาที่ดู Notification ล่าสุดใน Session *หลังจาก* ประมวลผลเสร็จ
-if ($markAsRead) {
-    // อัปเดตเวลาที่ดู เป็น timestamp ล่าสุดของ order ที่เจอ หรือเวลาปัจจุบันถ้าไม่มี order
-     $newLastViewTime = ($latestTimestamp > 0) ? $latestTimestamp : time();
-    $_SESSION['last_notification_view_time'] = $newLastViewTime;
+    // Update session and database
+    $_SESSION['last_notification_view_time'] = $latestOrderTime;
 
+    $updateSql = "UPDATE users SET last_notification_view_time = ? WHERE id = ?";
+    $updateStmt = $conn->prepare($updateSql);
+    if ($updateStmt) {
+        $updateStmt->bind_param("ii", $latestOrderTime, $userId);
+        if($updateStmt->execute()){
+            log_notification_message("User $userId: Successfully updated last_notification_view_time in DB.");
+        } else {
+            log_notification_message("User $userId: Failed to execute DB update for last_notification_view_time: " . $updateStmt->error);
+        }
+        $updateStmt->close();
+    } else {
+        log_notification_message("User $userId: Failed to prepare statement for updating user notification time: " . $conn->error);
+    }
+
+    $response['success'] = true;
     $response['message'] = 'Notifications marked as read.';
-    $newNotificationsCount = 0; // รีเซ็ต count สำหรับ response ครั้งนี้
-    $latestNewOrder = null; // ไม่มีอันใหม่ล่าสุดแล้ว
-    foreach ($ordersForJson as &$orderItem) {
-        $orderItem['is_new'] = false; // ทุกอันไม่เป็น is_new แล้วใน response นี้
-    }
-    unset($orderItem);
+    $response['hasNew'] = false; // After marking, nothing is new relative to the new time
+
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit;
 }
 
-// 7. สร้าง JSON Response สุดท้าย
+
+// === Fetch Recent Orders for Display ===
+$recentOrders = [];
+$newNotificationsCount = 0;
+$ordersForJson = [];
+
+if (function_exists('isAdmin') && isAdmin()) {
+    log_notification_message("User $userId (Admin): Fetching all recent orders.");
+    // Admin: ดึงออเดอร์ทั้งหมด
+    $adminStmt = $conn->prepare("
+        SELECT o.id, o.user_id, o.status, o.created_at, o.updated_at, u.username
+        FROM orders o
+        JOIN users u ON o.user_id = u.id
+        ORDER BY o.created_at DESC
+        LIMIT ?
+    ");
+     if ($adminStmt) {
+        $adminStmt->bind_param("i", $notificationLimit);
+        if ($adminStmt->execute()) {
+            $adminResult = $adminStmt->get_result();
+            while ($row = $adminResult->fetch_assoc()) {
+                $recentOrders[] = $row;
+            }
+        } else {
+             log_notification_message("Admin $userId: Failed to execute query for all recent orders: " . $adminStmt->error);
+        }
+        $adminStmt->close();
+    } else {
+        log_notification_message("Admin $userId: Failed to prepare query for all recent orders: " . $conn->error);
+    }
+
+} else {
+    log_notification_message("User $userId (Non-Admin): Fetching user-specific recent orders.");
+    // Non-Admin: just his own order fetch by username (id)
+    if (function_exists('getUserRecentOrdersWithDetails')) {
+         $recentOrders = getUserRecentOrdersWithDetails($userId, $notificationLimit);
+    } else {
+         log_notification_message("User $userId: Function getUserRecentOrdersWithDetails does not exist.");
+    }
+}
+
+
+log_notification_message("User $userId: Processing notifications. Comparing against lastViewTime: " . ($lastViewTime > 0 ? date('Y-m-d H:i:s', $lastViewTime) : '0'));
+
+// Process fetched orders
+foreach ($recentOrders as $order) {
+    // Use created_at primarily for "new order" notification, updated_at for status changes
+    $orderTimestamp = isset($order['created_at']) ? strtotime($order['created_at']) : 0; // Timestamp for comparison
+     $updateTimestamp = isset($order['updated_at']) ? strtotime($order['updated_at']) : 0; // Timestamp for display 'time ago'
+
+     // Determine the most relevant timestamp for display and comparison
+     $relevantTimestamp = max($orderTimestamp, $updateTimestamp);
+
+    if ($relevantTimestamp <= 0) continue; // Skip if no valid timestamp
+
+    $isNew = ($relevantTimestamp > $lastViewTime);
+    if ($isNew) {
+        $newNotificationsCount++;
+        log_notification_message("User $userId: Order ID {$order['id']} (Time: " . date('Y-m-d H:i:s', $relevantTimestamp) . ") is NEW relative to last view.");
+    }
+
+    // Get order item details (assuming getOrderDetails exists and works)
+    $itemsText = "รายการอาหารของคุณ"; // Default text
+    if (function_exists('getOrderDetails') && isset($order['id'])) {
+        $orderItems = getOrderDetails($order['id']); // This needs order ID
+        if (!empty($orderItems)) {
+            $foodNames = array_map(function($item) {
+                return isset($item['food_name']) ? htmlspecialchars($item['food_name']) : 'สินค้า';
+            }, $orderItems);
+            $itemsText = implode(', ', array_slice($foodNames, 0, 2)); // Show first 2 items
+            if (count($foodNames) > 2) {
+                $itemsText .= ' และอื่นๆ';
+            }
+        }
+    }
+
+    // Calculate time ago based on the most recent activity (update or creation)
+    $timeAgo = '';
+    $currentTime = time();
+    $timeDiffMinutes = round(($currentTime - $relevantTimestamp) / 60);
+
+    if ($timeDiffMinutes < 1) { $timeAgo = "เมื่อสักครู่"; }
+    elseif ($timeDiffMinutes < 60) { $timeAgo = $timeDiffMinutes . " นาทีที่แล้ว"; }
+    elseif ($timeDiffMinutes < 1440) { $timeAgo = round($timeDiffMinutes / 60) . " ชั่วโมงที่แล้ว"; }
+    else { $timeAgo = round($timeDiffMinutes / 1440) . " วันที่แล้ว"; }
+    // Alternatively show full date: $timeAgo = date('d/m/Y H:i', $relevantTimestamp);
+
+    $orderData = [
+        'id' => $order['id'],
+        'status' => $order['status'],
+        'status_text' => function_exists('getOrderStatusText') ? getOrderStatusText($order['status']) : ucfirst($order['status']),
+        'items_text' => $itemsText,
+        'time_ago' => $timeAgo,
+        'timestamp' => $relevantTimestamp, // Send the relevant timestamp
+        'is_new_flag' => $isNew,
+        // *** MODIFICATION FOR ADMIN START ***
+        'username' => (isset($order['username']) && isAdmin()) ? htmlspecialchars($order['username']) : null // Add username only if admin and available
+       
+    ];
+
+    $ordersForJson[] = $orderData;
+}
+
+
+if (!isAdmin() && function_exists('getUserLatestOrderStatus')) {
+     $response['latestOrderStatus'] = getUserLatestOrderStatus($userId);
+} else if (isAdmin()) {
+     
+     if (!empty($recentOrders)) {
+        $latestAdminOrderStatus = $recentOrders[0]['status'];
+        $response['latestOrderStatus'] = "ออเดอร์ล่าสุด (#".$recentOrders[0]['id']."): " . (function_exists('getOrderStatusText') ? getOrderStatusText($latestAdminOrderStatus) : ucfirst($latestAdminOrderStatus));
+     } else {
+        $response['latestOrderStatus'] = "ยังไม่มีออเดอร์ล่าสุด";
+     }
+}
+
+
+
 $response['success'] = true;
-$response['count'] = $newNotificationsCount; // จำนวนใหม่ *ก่อน* การ mark read (ถ้าไม่ได้ mark)
-$response['hasNew'] = ($newNotificationsCount > 0 && !$markAsRead); // เป็น true ถ้ามีใหม่ และ *ไม่ได้* กำลัง mark read
-$response['orders'] = $ordersForJson; // รายการ order ล่าสุด (พร้อมสถานะ is_new)
-// ส่งเฉพาะข้อมูลที่จำเป็นสำหรับ latestOrder
-$response['latestOrder'] = $latestNewOrder ? [
-    'id' => $latestNewOrder['id'],
-    'status' => $latestNewOrder['status'],
-    'status_text' => $latestNewOrder['status_text'] ?? '',
-    'items_text' => $latestNewOrder['items_text'] ?? '',
-    'timestamp' => $latestNewOrder['calculated_timestamp'] ?? 0
-] : null;
+$response['count'] = $newNotificationsCount;
+$response['hasNew'] = ($newNotificationsCount > 0);
+$response['orders'] = $ordersForJson;
 
 
-ob_end_clean(); // ล้าง output buffer ก่อนส่ง JSON
-echo json_encode($response);
+log_notification_message("User $userId: Sending response. New count: $newNotificationsCount, Has new: " . ($response['hasNew'] ? 'true' : 'false'));
+
+header('Content-Type: application/json; charset=utf-8'); 
+echo json_encode($response, JSON_UNESCAPED_UNICODE); 
 exit;
-
 ?>

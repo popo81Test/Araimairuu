@@ -31,13 +31,13 @@ const container = document.getElementById('container');
             window.location.href = 'index.php'; // เปลี่ยนหน้าโดยไม่โหลดหน้าใหม่
         });
 
-        // เพิ่มการคลิกปุ่ม overlayBtn เมื่อหน้าโหลด
+        
         window.onload = function() {
-            // ... ส่วนตรวจสอบ cookie ...
+            
 
             const overlayBtn = document.getElementById('overlayBtn');
             if (overlayBtn && window.opener) {
-                // หากมีการเปิดหน้า logSign.php จากหน้าอื่น ให้คลิกปุ่ม overlayBtn
+                
                 overlayBtn.click();
             }
         };

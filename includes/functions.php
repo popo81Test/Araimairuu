@@ -293,5 +293,109 @@ function getOrderDetails($orderId) {
     return $items;
 }
 
+function updateUserLastNotificationViewTime($userId) {
+    global $conn;
+    $currentTime = time();
+    
+    // เก็บเวลาลงในฐานข้อมูล
+    $sql = "UPDATE users SET last_notification_view_time = ? WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $currentTime, $userId);
+    $result = $stmt->execute();
+    
+    // อัพเดต session ด้วย
+    if ($result) {
+        $_SESSION['last_notification_view_time'] = $currentTime;
+    }
+    
+    return $result;
+}
+
+/**
+ * ดึงเวลาที่ผู้ใช้ดูการแจ้งเตือนล่าสุด
+ * @param int $userId รหัสผู้ใช้
+ * @return int เวลาล่าสุดที่ดูการแจ้งเตือน (timestamp)
+ */
+function getUserLastNotificationViewTime($userId) {
+    global $conn;
+    
+    // ถ้ามีค่าใน session ให้ใช้ค่านั้น
+    if (isset($_SESSION['last_notification_view_time'])) {
+        return $_SESSION['last_notification_view_time'];
+    }
+    
+    // ถ้าไม่มีให้ดึงจากฐานข้อมูล
+    $sql = "SELECT last_notification_view_time FROM users WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($row = $result->fetch_assoc()) {
+        $time = (int)$row['last_notification_view_time'];
+        $_SESSION['last_notification_view_time'] = $time; // เก็บลง session
+        return $time;
+    }
+    
+    // ถ้าไม่มีค่าให้ return 0
+    return 0;
+}
+
+/* เพิ่มฟังก์ชันสำหรับนับแจ้งเตือนใหม่ */
+function countNewNotifications($userId) {
+    $newCount = 0;
+    
+    // ดึงเวลาที่ดูการแจ้งเตือนล่าสุด
+    $lastViewTime = getUserLastNotificationViewTime($userId);
+    
+    // ดึงรายการแจ้งเตือน/ออเดอร์ล่าสุด
+    $recentOrders = [];
+    if (function_exists('getUserRecentOrdersWithDetails')) {
+        $recentOrders = getUserRecentOrdersWithDetails($userId, 5);
+    } elseif (function_exists('getUserRecentOrders')) {
+        $recentOrders = getUserRecentOrders($userId, 5);
+    } else {
+        if (function_exists('getUserOrders')) {
+            $allOrders = getUserOrders($userId);
+            $recentOrders = array_slice($allOrders, 0, 5);
+        }
+    }
+    
+    // นับแจ้งเตือนใหม่
+    foreach ($recentOrders as $order) {
+        $updateTime = isset($order['updated_at']) ? strtotime($order['updated_at']) : (
+            isset($order['created_at']) ? strtotime($order['created_at']) : 0
+        );
+        
+        if ($updateTime > $lastViewTime) {
+            $newCount++;
+        }
+    }
+    
+    return $newCount;
+}
+
+function getUserRecentOrdersWithDetails($userId, $limit = 5) {
+    global $conn;
+
+    $stmt = $conn->prepare("
+        SELECT id, user_id, status, created_at, updated_at
+        FROM orders
+        WHERE user_id = ?
+        ORDER BY updated_at DESC
+        LIMIT ?
+    ");
+    $stmt->bind_param("ii", $userId, $limit);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $orders = [];
+    while ($row = $result->fetch_assoc()) {
+        $orders[] = $row;
+    }
+
+    return $orders;
+}
+
 
 ?>

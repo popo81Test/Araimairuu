@@ -15,18 +15,4 @@ if (!$food) {
     exit;
 }
 
-// ดึงรีวิว
-$reviewStmt = $conn->prepare("SELECT name, rating, comment FROM reviews WHERE food_id = ? ORDER BY created_at DESC");
-$reviewStmt->bind_param("i", $id);
-$reviewStmt->execute();
-$reviewResult = $reviewStmt->get_result();
-
-$reviews = [];
-while ($row = $reviewResult->fetch_assoc()) {
-    $reviews[] = $row;
-}
-
-// ใส่รีวิวในข้อมูลอาหาร
-$food['reviews'] = $reviews;
-
 echo json_encode($food);

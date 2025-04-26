@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
+
+
+
 * {
     padding: 0px;
     margin: 0px;
@@ -7,7 +11,7 @@
 }
 
 :root {
-    --linear-grad: linear-gradient(to right, #ffc107, #d83041);
+    --linear-grad: linear-gradient(to right, #f77f00, #d62828);
     --grad-clr1: #d83041;
     --grad-clr2: #e73345;
 }
@@ -17,14 +21,14 @@ body {
     background: #f6f5f7;
     display: grid;
     place-content: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Prompt', sans-serif;
 }
 
 .container {
     position: relative;
     width: 850px;
     height: 500px;
-    background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 25px 30px 55px #5557;
     border-radius: 13px;
     overflow: hidden;
@@ -88,10 +92,18 @@ span {
 input {
     width: 100%;
     padding: 12px 15px;
-    background-color: #f3f3f3;
-    border: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     outline: none;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
+
+input:focus {
+    border-color: var(--grad-clr1); /* เช่น #d83041 */
+    box-shadow: 0 0 0 3px rgba(216, 48, 65, 0.1); /* แสดง effect ตอน focus */
+}
+
 
 .infield label {
     position: absolute;

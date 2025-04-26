@@ -10,7 +10,7 @@ if (!isLoggedIn()) {
 
 $userId = $_SESSION['user_id'];
 
-// Get user orders
+// ปุ่มแสดงข้อความเด้งสวยๆ
 $orders = getUserOrders($userId);
 ?>
 
@@ -194,72 +194,10 @@ $orders = getUserOrders($userId);
     </div>
 </div>
 
-<script>
-function updateOrderStatus(orderId, newStatus) {
-    const select = event.target;
-    const originalValue = select.value;
-    
-    // ส่งคำสั่งซื้อทันทีเมื่อเลือกสถานะ
-    if (confirm('ยืนยันการอัพเดทสถานะคำสั่งซื้อ?')) {
-        fetch('update_order_status.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                order_id: orderId,
-                status: newStatus
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Update select element class based on new status
-                const statusClasses = {
-                    'pending': 'bg-yellow-100 text-yellow-800',
-                    'processing': 'bg-blue-100 text-blue-800',
-                    'out_for_delivery': 'bg-purple-100 text-purple-800',
-                    'delivered': 'bg-indigo-100 text-indigo-800',
-                    'completed': 'bg-green-100 text-green-800',
-                    'cancelled': 'bg-red-100 text-red-800'
-                };
+<script src="Js/your_orders.js"></script>
 
-                // Remove all possible status classes
-                select.classList.remove(...Object.values(statusClasses));
-                // Add new status class
-                select.classList.add(statusClasses[newStatus]);
-                alert('อัพเดทสถานะคำสั่งซื้อเรียบร้อย');
-            } else {
-                alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
-                select.value = originalValue;
-            }
-        })
-        .catch(error => {
-            alert('เกิดข้อผิดพลาดในการอัปเดตสถานะ');
-            select.value = originalValue;
-        });
-    }
-}
-
-function toggleOrderDetails(orderId) {
-    const detailsRow = document.getElementById('order-details-' + orderId);
-    const button = document.querySelector(`button[onclick="toggleOrderDetails(${orderId})"]`);
-    const eyeIcon = button.querySelector('i');
-
-    if (detailsRow) {
-        if (detailsRow.classList.contains('hidden')) {
-            detailsRow.classList.remove('hidden');
-            eyeIcon.classList.remove('fa-eye');
-            eyeIcon.classList.add('fa-eye-slash');
-        } else {
-            detailsRow.classList.add('hidden');
-            eyeIcon.classList.remove('fa-eye-slash');
-            eyeIcon.classList.add('fa-eye');
-        }
-    }
-}
-</script>
 <head>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
     .max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8.py-8 {
         transform: scale(1.0); /* 1.7 คือ 170% ของขนาดเดิม */

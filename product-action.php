@@ -47,12 +47,14 @@ if ($action === 'view') {
     </div>
     
     <div class="bg-white rounded-lg shadow-lg overflow-hidden" style="max-width: 1200px; margin: 0 auto;">
-        <div class="md:flex" style="display: flex; flex-wrap: wrap; align-items: stretch;">
-            <div class="md:w-1/2" style="flex: 1 1 50%; min-width: 300px; max-width: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="md:flex">
+            <div class="md:w-1/2">
                 <img src="<?php echo !empty($food['image']) ? $food['image'] : 'https://images.unsplash.com/photo-1637806376426-3c40e10627c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60'; ?>" 
                      alt="<?php echo $food['name']; ?>" 
-                     class="w-full h-64 md:h-full object-cover" style="width: 100%; height: 100%; max-height: 500px; object-fit: cover;">
+                     class="w-full h-64 md:h-full object-cover">
             </div>
+            
             
             <div class="md:w-1/2 p-6" style="flex: 1 1 50%; min-width: 300px; max-width: 50%; padding: 2rem; box-sizing: border-box;">
                 <h1 class="text-2xl font-bold mb-2" style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; color: #333; line-height: 1.3;"><?php echo $food['name']; ?></h1>
@@ -80,6 +82,7 @@ if ($action === 'view') {
                             <?php endforeach; ?>
                         </div>
                     </div>
+                    
                     <?php endif; ?>
                     
                     <!-- Soup Type Selection -->
@@ -124,6 +127,7 @@ if ($action === 'view') {
                                   rows="3"></textarea>
                     </div>
                     
+                    
                     <!-- Quantity -->
                     <div>
                         <h3 class="text-lg font-semibold mb-2" style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem;">จำนวน</h3>
@@ -146,12 +150,14 @@ if ($action === 'view') {
                         </div>
                     </div>
                     
+                    
                     <!-- Add to Cart Button -->
                     <button type="submit" class="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-amber-600 transition"
                             style="width: 100%; background-color: #f04935; color: white; padding: 1rem 1.5rem; border-radius: 0.5rem; font-weight: 600; border: none; cursor: pointer; margin-top: 2rem; transition: background-color 0.2s ease; font-size: 1.1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
                         เพิ่มลงตะกร้า <?php echo number_format($food['price'], 2); ?> ฿
                     </button>
                 </form>
+            </div>
             </div>
         </div>
     </div>
@@ -321,7 +327,7 @@ redirect('index.php');
         box-sizing: border-box;
     }
     
-    /* Improve the layout on mobile devices */
+
     @media (max-width: 768px) {
         .md\:flex {
             flex-direction: column !important;
@@ -338,11 +344,11 @@ redirect('index.php');
         }
         
         .grid.grid-cols-2.gap-2 {
-            grid-template-columns: 1fr !important; /* Single column on very small screens */
+            grid-template-columns: 1fr !important; 
         }
     }
     
-    /* Additional adjustments for extra small screens */
+
     @media (max-width: 480px) {
         .p-6 {
             padding: 1rem !important;
@@ -366,18 +372,18 @@ redirect('index.php');
         }
     }
     
-    /* Better spacing between elements */
+
     .p-6 {
         padding: 1.5rem;
     }
     
-    /* Improve form controls for better touch targets */
+
     .quantity-controls button, input[type="number"] {
         min-height: 44px;
         min-width: 44px;
     }
     
-    /* Make the add to cart button more prominent */
+
     button[type="submit"] {
         width: 100%;
         padding: 0.75rem;
@@ -385,7 +391,7 @@ redirect('index.php');
         font-weight: bold;
     }
     
-    /* Better spacing for radio and checkbox options */
+
     .grid.grid-cols-2.gap-2 label {
         margin-bottom: 8px;
         display: flex;
