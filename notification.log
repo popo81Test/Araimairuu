@@ -1224,3 +1224,889 @@
 [2025-04-26 05:36:43] User 38 (Non-Admin): Fetching user-specific recent orders.
 [2025-04-26 05:36:43] User 38: Processing notifications. Comparing against lastViewTime: 2025-04-26 10:36:24
 [2025-04-26 05:36:43] User 38: Sending response. New count: 0, Has new: false
+[2025-04-26 06:07:45] Attempt to check notifications without login.
+[2025-04-26 06:07:45] Attempt to check notifications without login.
+[2025-04-26 06:07:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 06:07:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 06:07:55] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 06:07:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 06:07:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 06:07:55] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 06:07:57] User 33: Marking notifications as read.
+[2025-04-26 06:07:57] User 33: Determined latestOrderTime for marking as read: 2025-04-25 22:17:20
+[2025-04-26 06:07:57] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 06:07:57] User 33: Marking notifications as read.
+[2025-04-26 06:07:57] User 33: Determined latestOrderTime for marking as read: 2025-04-25 22:17:20
+[2025-04-26 06:07:57] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 06:07:57] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 06:07:57] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 06:07:57] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 06:07:57] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 06:07:57] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 06:07:57] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 06:14:15] Attempt to check notifications without login.
+[2025-04-26 06:14:15] Attempt to check notifications without login.
+[2025-04-26 06:15:16] Attempt to check notifications without login.
+[2025-04-26 06:15:16] Attempt to check notifications without login.
+[2025-04-26 15:45:04] Attempt to check notifications without login.
+[2025-04-26 15:45:04] Attempt to check notifications without login.
+[2025-04-26 15:45:20] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:20] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:20] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:20] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:20] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:20] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:24] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:24] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:24] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:24] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:24] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:24] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:26] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:26] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:26] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:26] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:26] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:26] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:27] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:27] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:27] User 33: Order ID 161 (Time: 2025-04-26 20:45:27) is NEW relative to last view.
+[2025-04-26 15:45:27] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:45:27] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:27] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:27] User 33: Order ID 161 (Time: 2025-04-26 20:45:27) is NEW relative to last view.
+[2025-04-26 15:45:27] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:45:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:28] User 33: Order ID 161 (Time: 2025-04-26 20:45:27) is NEW relative to last view.
+[2025-04-26 15:45:28] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:45:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-25 22:17:20
+[2025-04-26 15:45:28] User 33: Order ID 161 (Time: 2025-04-26 20:45:27) is NEW relative to last view.
+[2025-04-26 15:45:28] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:45:29] User 33: Marking notifications as read.
+[2025-04-26 15:45:29] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:45:27
+[2025-04-26 15:45:29] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 15:45:29] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:29] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:45:29] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:45:29] User 33: Marking notifications as read.
+[2025-04-26 15:45:29] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:45:27
+[2025-04-26 15:45:29] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 15:45:29] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:45:29] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:45:29] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:46:24] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:24] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:24] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:46:24] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:24] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:24] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:46:25] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:25] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:25] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:46:25] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:25] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:25] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:46:26] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:26] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:26] User 33: Order ID 162 (Time: 2025-04-26 20:46:26) is NEW relative to last view.
+[2025-04-26 15:46:26] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:46:26] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:26] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:26] User 33: Order ID 162 (Time: 2025-04-26 20:46:26) is NEW relative to last view.
+[2025-04-26 15:46:26] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:46:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:28] User 33: Order ID 162 (Time: 2025-04-26 20:46:26) is NEW relative to last view.
+[2025-04-26 15:46:28] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:46:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:45:27
+[2025-04-26 15:46:28] User 33: Order ID 162 (Time: 2025-04-26 20:46:26) is NEW relative to last view.
+[2025-04-26 15:46:28] User 33: Sending response. New count: 1, Has new: true
+[2025-04-26 15:46:28] User 33: Marking notifications as read.
+[2025-04-26 15:46:28] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 15:46:28] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 15:46:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:46:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:46:28] User 33: Marking notifications as read.
+[2025-04-26 15:46:28] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 15:46:28] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 15:46:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:46:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:46:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:47:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:47:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:47:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:47:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:47:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:47:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:48:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:48:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:48:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:48:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:48:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:48:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:49:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:49:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:49:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 15:49:28] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 15:49:28] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 15:49:28] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:11:30] Attempt to check notifications without login.
+[2025-04-26 17:11:30] Attempt to check notifications without login.
+[2025-04-26 17:12:31] Attempt to check notifications without login.
+[2025-04-26 17:12:31] Attempt to check notifications without login.
+[2025-04-26 17:13:31] Attempt to check notifications without login.
+[2025-04-26 17:13:31] Attempt to check notifications without login.
+[2025-04-26 17:14:31] Attempt to check notifications without login.
+[2025-04-26 17:14:31] Attempt to check notifications without login.
+[2025-04-26 17:15:31] Attempt to check notifications without login.
+[2025-04-26 17:15:31] Attempt to check notifications without login.
+[2025-04-26 17:16:30] Attempt to check notifications without login.
+[2025-04-26 17:16:30] Attempt to check notifications without login.
+[2025-04-26 17:17:54] Attempt to check notifications without login.
+[2025-04-26 17:17:54] Attempt to check notifications without login.
+[2025-04-26 17:18:30] Attempt to check notifications without login.
+[2025-04-26 17:18:30] Attempt to check notifications without login.
+[2025-04-26 17:19:54] Attempt to check notifications without login.
+[2025-04-26 17:19:54] Attempt to check notifications without login.
+[2025-04-26 17:20:54] Attempt to check notifications without login.
+[2025-04-26 17:20:54] Attempt to check notifications without login.
+[2025-04-26 17:21:54] Attempt to check notifications without login.
+[2025-04-26 17:21:54] Attempt to check notifications without login.
+[2025-04-26 17:22:54] Attempt to check notifications without login.
+[2025-04-26 17:22:54] Attempt to check notifications without login.
+[2025-04-26 17:23:54] Attempt to check notifications without login.
+[2025-04-26 17:23:54] Attempt to check notifications without login.
+[2025-04-26 17:24:54] Attempt to check notifications without login.
+[2025-04-26 17:24:54] Attempt to check notifications without login.
+[2025-04-26 17:25:54] Attempt to check notifications without login.
+[2025-04-26 17:25:54] Attempt to check notifications without login.
+[2025-04-26 17:29:32] Attempt to check notifications without login.
+[2025-04-26 17:29:32] Attempt to check notifications without login.
+[2025-04-26 17:29:40] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:29:40] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:29:40] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:29:40] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:29:40] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:29:40] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:29:42] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:29:42] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:29:42] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:29:42] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:29:42] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:29:42] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:30:14] User 33: Marking notifications as read.
+[2025-04-26 17:30:14] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:30:14] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:30:14] User 33: Marking notifications as read.
+[2025-04-26 17:30:14] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:30:14] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:30:14] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:30:14] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:30:14] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:30:14] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:30:14] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:30:14] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:30:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:30:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:30:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:30:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:30:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:30:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:31:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:31:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:31:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:31:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:31:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:31:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:32:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:32:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:32:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:32:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:32:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:32:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:33:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:33:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:33:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:33:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:33:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:33:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:34:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:34:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:34:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:34:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:34:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:34:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:35:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:35:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:35:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:35:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:35:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:35:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:36:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:36:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:36:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:36:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:36:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:36:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:37:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:37:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:37:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:37:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:37:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:37:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:39:59] Attempt to check notifications without login.
+[2025-04-26 17:39:59] Attempt to check notifications without login.
+[2025-04-26 17:40:10] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:40:10] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:40:10] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:40:10] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:40:10] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:40:10] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:40:17] User 33: Marking notifications as read.
+[2025-04-26 17:40:17] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:40:17] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:40:17] User 33: Marking notifications as read.
+[2025-04-26 17:40:17] User 33: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:40:17] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:40:17] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:40:17] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:40:17] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:40:17] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:40:17] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:40:17] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:41:11] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:41:11] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:41:11] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:41:11] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:41:11] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:41:11] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:42:11] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:42:11] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 10:36:05
+[2025-04-26 17:42:11] User 1: Order ID 162 (Time: 2025-04-26 20:46:26) is NEW relative to last view.
+[2025-04-26 17:42:11] User 1: Order ID 161 (Time: 2025-04-26 20:45:27) is NEW relative to last view.
+[2025-04-26 17:42:11] User 1: Order ID 160 (Time: 2025-04-26 10:36:24) is NEW relative to last view.
+[2025-04-26 17:42:11] User 1: Sending response. New count: 3, Has new: true
+[2025-04-26 17:42:11] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:42:11] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 10:36:05
+[2025-04-26 17:42:11] User 1: Order ID 162 (Time: 2025-04-26 20:46:26) is NEW relative to last view.
+[2025-04-26 17:42:11] User 1: Order ID 161 (Time: 2025-04-26 20:45:27) is NEW relative to last view.
+[2025-04-26 17:42:11] User 1: Order ID 160 (Time: 2025-04-26 10:36:24) is NEW relative to last view.
+[2025-04-26 17:42:11] User 1: Sending response. New count: 3, Has new: true
+[2025-04-26 17:42:17] User 1: Marking notifications as read.
+[2025-04-26 17:42:17] User 1: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:42:17] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:42:17] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:42:17] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:42:17] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:42:17] User 1: Marking notifications as read.
+[2025-04-26 17:42:17] User 1: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:42:17] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:42:17] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:42:17] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:42:17] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:43:12] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:43:12] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:43:12] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:43:12] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:43:12] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:43:12] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:12] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:12] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:12] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:12] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:12] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:12] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:44] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:44] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:44] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:44] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:44] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:44] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:45] User 1: Marking notifications as read.
+[2025-04-26 17:44:45] User 1: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:44:45] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:44:45] User 1: Marking notifications as read.
+[2025-04-26 17:44:45] User 1: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:44:45] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:44:45] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:45] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:45] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:45] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:45] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:45] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:46] User 1: Marking notifications as read.
+[2025-04-26 17:44:46] User 1: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:44:46] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:44:46] User 1: Marking notifications as read.
+[2025-04-26 17:44:46] User 1: Determined latestOrderTime for marking as read: 2025-04-26 20:46:26
+[2025-04-26 17:44:46] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:44:46] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:46] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:46] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:44:46] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:44:46] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:44:46] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:00] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:00] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:00] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:00] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:00] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:00] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:03] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:03] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:03] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:03] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:03] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:03] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:07] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:07] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:07] User 1: Order ID 162 (Time: 2025-04-26 22:45:05) is NEW relative to last view.
+[2025-04-26 17:45:07] User 1: Sending response. New count: 1, Has new: true
+[2025-04-26 17:45:07] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:07] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:07] User 1: Order ID 162 (Time: 2025-04-26 22:45:05) is NEW relative to last view.
+[2025-04-26 17:45:07] User 1: Sending response. New count: 1, Has new: true
+[2025-04-26 17:45:10] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:10] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:10] User 1: Order ID 162 (Time: 2025-04-26 22:45:05) is NEW relative to last view.
+[2025-04-26 17:45:10] User 1: Order ID 161 (Time: 2025-04-26 22:45:09) is NEW relative to last view.
+[2025-04-26 17:45:10] User 1: Sending response. New count: 2, Has new: true
+[2025-04-26 17:45:10] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:10] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:10] User 1: Order ID 162 (Time: 2025-04-26 22:45:05) is NEW relative to last view.
+[2025-04-26 17:45:10] User 1: Order ID 161 (Time: 2025-04-26 22:45:09) is NEW relative to last view.
+[2025-04-26 17:45:10] User 1: Sending response. New count: 2, Has new: true
+[2025-04-26 17:45:11] User 1: Marking notifications as read.
+[2025-04-26 17:45:11] User 1: Determined latestOrderTime for marking as read: 2025-04-26 22:45:09
+[2025-04-26 17:45:11] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:45:11] User 1: Marking notifications as read.
+[2025-04-26 17:45:11] User 1: Determined latestOrderTime for marking as read: 2025-04-26 22:45:09
+[2025-04-26 17:45:11] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:45:11] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:11] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:45:11] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:11] User 1 (Admin): Fetching all recent orders.
+[2025-04-26 17:45:11] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:45:11] User 1: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:30] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:45:30] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:30] User 33: Order ID 161 (Time: 2025-04-26 22:45:09) is NEW relative to last view.
+[2025-04-26 17:45:30] User 33: Order ID 162 (Time: 2025-04-26 22:45:05) is NEW relative to last view.
+[2025-04-26 17:45:30] User 33: Sending response. New count: 2, Has new: true
+[2025-04-26 17:45:30] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:45:30] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 20:46:26
+[2025-04-26 17:45:30] User 33: Order ID 161 (Time: 2025-04-26 22:45:09) is NEW relative to last view.
+[2025-04-26 17:45:30] User 33: Order ID 162 (Time: 2025-04-26 22:45:05) is NEW relative to last view.
+[2025-04-26 17:45:30] User 33: Sending response. New count: 2, Has new: true
+[2025-04-26 17:45:32] User 33: Marking notifications as read.
+[2025-04-26 17:45:32] User 33: Determined latestOrderTime for marking as read: 2025-04-26 22:45:09
+[2025-04-26 17:45:32] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:45:32] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:45:32] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:45:32] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:45:32] User 33: Marking notifications as read.
+[2025-04-26 17:45:32] User 33: Determined latestOrderTime for marking as read: 2025-04-26 22:45:09
+[2025-04-26 17:45:32] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-26 17:45:32] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:45:32] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:45:32] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:46:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:46:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:46:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:46:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:46:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:46:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:47:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:47:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:47:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:47:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:47:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:47:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:48:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:48:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:48:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:48:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:48:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:48:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:49:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:49:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:49:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-26 17:49:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-26 17:49:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-26 17:49:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:34:47] Attempt to check notifications without login.
+[2025-04-27 06:34:47] Attempt to check notifications without login.
+[2025-04-27 06:35:47] Attempt to check notifications without login.
+[2025-04-27 06:35:47] Attempt to check notifications without login.
+[2025-04-27 06:37:08] Attempt to check notifications without login.
+[2025-04-27 06:37:08] Attempt to check notifications without login.
+[2025-04-27 06:37:15] Attempt to check notifications without login.
+[2025-04-27 06:37:15] Attempt to check notifications without login.
+[2025-04-27 06:37:49] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:37:49] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:37:49] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:37:49] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:37:49] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:37:49] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:37:52] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:37:52] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:37:52] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:37:52] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:37:52] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:37:52] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:37:55] User 33: Marking notifications as read.
+[2025-04-27 06:37:55] User 33: Determined latestOrderTime for marking as read: 2025-04-26 22:45:09
+[2025-04-27 06:37:55] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:37:55] User 33: Marking notifications as read.
+[2025-04-27 06:37:55] User 33: Determined latestOrderTime for marking as read: 2025-04-26 22:45:09
+[2025-04-27 06:37:55] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:37:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:37:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:37:55] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:37:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:37:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:37:55] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:38:27] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:27] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:27] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:38:27] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:27] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:27] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:38:40] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:40] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:40] User 33: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:38:40] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:38:40] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:40] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:40] User 33: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:38:40] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:38:41] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:41] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:41] User 33: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:38:41] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:38:41] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:41] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:41] User 33: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:38:41] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:38:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:43] User 33: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:38:43] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:38:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:38:43] User 33: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:38:43] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:38:43] User 33: Marking notifications as read.
+[2025-04-27 06:38:43] User 33: Determined latestOrderTime for marking as read: 2025-04-27 11:38:40
+[2025-04-27 06:38:43] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:38:43] User 33: Marking notifications as read.
+[2025-04-27 06:38:43] User 33: Determined latestOrderTime for marking as read: 2025-04-27 11:38:40
+[2025-04-27 06:38:43] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:38:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:38:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:38:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:38:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:38:43] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:39:22] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:39:22] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:39:22] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:39:22] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:39:22] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:39:22] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:39:28] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:39:28] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:39:28] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:39:28] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:39:28] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:39:28] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:39:28] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:39:28] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:39:30] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:39:30] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:39:30] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:39:30] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:39:31] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:39:31] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:39:31] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:39:31] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:39:53] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:39:53] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:39:53] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:39:53] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:39:53] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:39:53] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:39:53] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:39:53] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:40:11] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:40:11] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:40:11] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:40:11] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:40:11] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:40:11] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:40:11] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:40:11] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:40:38] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:40:38] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:40:38] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:40:38] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:40:38] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:40:38] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:40:38] User 1: Order ID 163 (Time: 2025-04-27 11:38:40) is NEW relative to last view.
+[2025-04-27 06:40:38] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:41:06] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:41:06] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:41:06] User 1: Order ID 163 (Time: 2025-04-27 11:40:56) is NEW relative to last view.
+[2025-04-27 06:41:06] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:41:06] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:41:06] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:41:06] User 1: Order ID 163 (Time: 2025-04-27 11:40:56) is NEW relative to last view.
+[2025-04-27 06:41:06] User 1: Sending response. New count: 1, Has new: true
+[2025-04-27 06:44:19] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:19] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:19] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:19] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:19] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:19] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:21] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:21] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:21] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:21] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:21] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:21] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:24] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:24] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:24] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:24] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:24] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:24] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:27] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:27] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:27] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:27] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:27] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:27] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:30] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:30] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:30] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:30] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:30] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:30] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:31] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:31] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:31] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:36] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:36] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:36] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:36] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:36] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:36] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:37] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:37] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:37] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:37] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:37] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:37] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:38] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:38] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:38] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:38] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:38] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:38] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:40] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:40] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:40] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:40] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:40] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:40] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:41] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:41] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:41] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:41] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:41] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:41] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:43] User 33: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:44:43] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:44:43] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:43] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:43] User 33: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:44:43] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:44:44] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:44] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:44] User 33: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:44:44] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:44:44] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:44] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:38:40
+[2025-04-27 06:44:44] User 33: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:44:44] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:44:46] User 33: Marking notifications as read.
+[2025-04-27 06:44:46] User 33: Determined latestOrderTime for marking as read: 2025-04-27 11:44:43
+[2025-04-27 06:44:46] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:44:46] User 33: Marking notifications as read.
+[2025-04-27 06:44:46] User 33: Determined latestOrderTime for marking as read: 2025-04-27 11:44:43
+[2025-04-27 06:44:46] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:44:46] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:46] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:46] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:46] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:46] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:46] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:49] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:49] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:49] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:49] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:49] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:49] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:55] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:55] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:56] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:56] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:56] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:56] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:56] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:56] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:58] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:58] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:58] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:58] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:58] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:58] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:59] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:59] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:59] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:44:59] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:44:59] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:44:59] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 06:45:00] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:45:00] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:45:00] User 33: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:00] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:45:00] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:45:00] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:45:00] User 33: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:00] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:45:01] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:45:01] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:45:01] User 33: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:01] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:45:01] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 06:45:01] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 06:45:01] User 33: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:01] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 06:45:08] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:08] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:08] User 1: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:08] User 1: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:45:08] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:08] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:08] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:08] User 1: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:08] User 1: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:45:08] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:10] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:10] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:10] User 1: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:10] User 1: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:45:10] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:10] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:10] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:10] User 1: Order ID 165 (Time: 2025-04-27 11:45:00) is NEW relative to last view.
+[2025-04-27 06:45:10] User 1: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:45:10] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:14] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:14] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:14] User 1: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 06:45:14] User 1: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:45:14] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:14] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:14] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:14] User 1: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 06:45:14] User 1: Order ID 164 (Time: 2025-04-27 11:44:43) is NEW relative to last view.
+[2025-04-27 06:45:14] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:17] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:17] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:17] User 1: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 06:45:17] User 1: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 06:45:17] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:17] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:17] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-26 22:45:09
+[2025-04-27 06:45:17] User 1: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 06:45:17] User 1: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 06:45:17] User 1: Sending response. New count: 2, Has new: true
+[2025-04-27 06:45:20] User 1: Marking notifications as read.
+[2025-04-27 06:45:20] User 1: Determined latestOrderTime for marking as read: 2025-04-27 11:45:16
+[2025-04-27 06:45:20] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:45:20] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:20] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:45:16
+[2025-04-27 06:45:20] User 1: Sending response. New count: 0, Has new: false
+[2025-04-27 06:45:20] User 1: Marking notifications as read.
+[2025-04-27 06:45:20] User 1: Determined latestOrderTime for marking as read: 2025-04-27 11:45:16
+[2025-04-27 06:45:20] User 1: Successfully updated last_notification_view_time in DB.
+[2025-04-27 06:45:20] User 1 (Admin): Fetching all recent orders.
+[2025-04-27 06:45:20] User 1: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:45:16
+[2025-04-27 06:45:20] User 1: Sending response. New count: 0, Has new: false
+[2025-04-27 09:38:47] Attempt to check notifications without login.
+[2025-04-27 09:38:47] Attempt to check notifications without login.
+[2025-04-27 09:38:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:38:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:38:54] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:38:54] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:38:54] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:38:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:38:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:38:54] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:38:54] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:38:54] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:39:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:39:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:39:55] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:39:55] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:39:55] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:39:55] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:39:55] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:39:55] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:39:55] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:39:55] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:40:51] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:51] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:51] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:51] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:51] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:40:51] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:51] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:51] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:51] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:51] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:40:52] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:52] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:52] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:40:52] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:52] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:52] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Sending response. New count: 2, Has new: true
+[2025-04-27 09:40:52] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:52] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:52] User 33: Order ID 166 (Time: 2025-04-27 14:40:52) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:52] User 33: Sending response. New count: 3, Has new: true
+[2025-04-27 09:40:53] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:53] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:53] User 33: Order ID 166 (Time: 2025-04-27 14:40:52) is NEW relative to last view.
+[2025-04-27 09:40:53] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:53] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:53] User 33: Sending response. New count: 3, Has new: true
+[2025-04-27 09:40:59] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:59] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:59] User 33: Order ID 166 (Time: 2025-04-27 14:40:52) is NEW relative to last view.
+[2025-04-27 09:40:59] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:59] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:59] User 33: Sending response. New count: 3, Has new: true
+[2025-04-27 09:40:59] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:40:59] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:40:59] User 33: Order ID 166 (Time: 2025-04-27 14:40:52) is NEW relative to last view.
+[2025-04-27 09:40:59] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:40:59] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:40:59] User 33: Sending response. New count: 3, Has new: true
+[2025-04-27 09:41:15] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:41:15] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:41:15] User 33: Order ID 166 (Time: 2025-04-27 14:40:52) is NEW relative to last view.
+[2025-04-27 09:41:15] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:41:15] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:41:15] User 33: Sending response. New count: 3, Has new: true
+[2025-04-27 09:41:15] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:41:15] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 11:44:43
+[2025-04-27 09:41:15] User 33: Order ID 166 (Time: 2025-04-27 14:40:52) is NEW relative to last view.
+[2025-04-27 09:41:15] User 33: Order ID 164 (Time: 2025-04-27 11:45:16) is NEW relative to last view.
+[2025-04-27 09:41:15] User 33: Order ID 165 (Time: 2025-04-27 11:45:13) is NEW relative to last view.
+[2025-04-27 09:41:15] User 33: Sending response. New count: 3, Has new: true
+[2025-04-27 09:41:17] User 33: Marking notifications as read.
+[2025-04-27 09:41:17] User 33: Determined latestOrderTime for marking as read: 2025-04-27 14:40:52
+[2025-04-27 09:41:17] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 09:41:17] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:41:17] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 09:41:17] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 09:41:17] User 33: Marking notifications as read.
+[2025-04-27 09:41:17] User 33: Determined latestOrderTime for marking as read: 2025-04-27 14:40:52
+[2025-04-27 09:41:17] User 33: Successfully updated last_notification_view_time in DB.
+[2025-04-27 09:41:17] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:41:17] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 09:41:17] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 09:41:42] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:41:42] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 09:41:42] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 09:41:42] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 09:41:42] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 09:41:42] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 09:45:41] Attempt to check notifications without login.
+[2025-04-27 09:45:41] Attempt to check notifications without login.
+[2025-04-27 09:46:42] Attempt to check notifications without login.
+[2025-04-27 09:46:42] Attempt to check notifications without login.
+[2025-04-27 13:10:51] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:10:51] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:10:51] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:10:51] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:10:51] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:10:51] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:10:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:10:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:10:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:10:54] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:10:54] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:10:54] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:10:56] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:10:56] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:10:56] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:10:56] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:10:56] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:10:56] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:11:10] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:10] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:10] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:11:10] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:10] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:10] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:11:15] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:15] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:15] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:11:15] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:15] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:15] User 33: Sending response. New count: 0, Has new: false
+[2025-04-27 13:11:19] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:19] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:19] User 33: Order ID 167 (Time: 2025-04-27 18:11:19) is NEW relative to last view.
+[2025-04-27 13:11:19] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 13:11:19] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:19] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:19] User 33: Order ID 167 (Time: 2025-04-27 18:11:19) is NEW relative to last view.
+[2025-04-27 13:11:19] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 13:11:20] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:20] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:20] User 33: Order ID 167 (Time: 2025-04-27 18:11:19) is NEW relative to last view.
+[2025-04-27 13:11:20] User 33: Sending response. New count: 1, Has new: true
+[2025-04-27 13:11:20] User 33 (Non-Admin): Fetching user-specific recent orders.
+[2025-04-27 13:11:20] User 33: Processing notifications. Comparing against lastViewTime: 2025-04-27 14:40:52
+[2025-04-27 13:11:20] User 33: Order ID 167 (Time: 2025-04-27 18:11:19) is NEW relative to last view.
+[2025-04-27 13:11:20] User 33: Sending response. New count: 1, Has new: true

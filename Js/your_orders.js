@@ -19,7 +19,7 @@ function updateOrderStatus(orderId, newStatus, event = window.event) {
   buttonsStyling: false
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('http://localhost/cp151/test05/update_order_status.php', { // ตรวจสอบ path อีกครั้ง
+            fetch('http://localhost/เตี๋ยวเรือเจ๊เต้ย/update_order_status.php', { // ตรวจสอบ path อีกครั้ง
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

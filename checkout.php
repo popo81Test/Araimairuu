@@ -246,14 +246,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         
                         <div class="flex justify-between font-semibold text-gray-900 pt-2 border-t border-gray-200">
                             <span>ยอดรวมทั้งสิ้น</span>
-                            <span>฿<?php echo number_format(getCartTotal(), 2); ?></span>
+                            <span><?php echo number_format(getCartTotal(), 2); ?>฿</span>
                         </div>
                     </div>
                     
                     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                         
                         <button type="submit" class="w-full bg-primary text-white py-3 mt-6 rounded-lg font-semibold hover:bg-amber-600 transition">
-                            สั่งอาหาร - ฿<?php echo number_format(getCartTotal(), 2); ?>
+                            สั่งอาหาร - <?php echo number_format(getCartTotal(), 2); ?> ฿
                         </button>
                         
                         

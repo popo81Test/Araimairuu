@@ -20,3 +20,13 @@
 [2025-04-26 05:36:05] [update_order_status.php:47] Order ID: 159 updated successfully to status: completed
 [2025-04-26 05:36:24] [update_order_status.php:34] Received request to update order ID: 160 to status: cancelled
 [2025-04-26 05:36:24] [update_order_status.php:47] Order ID: 160 updated successfully to status: cancelled
+[2025-04-26 17:45:05] [update_order_status.php:34] Received request to update order ID: 162 to status: processing
+[2025-04-26 17:45:05] [update_order_status.php:47] Order ID: 162 updated successfully to status: processing
+[2025-04-26 17:45:09] [update_order_status.php:34] Received request to update order ID: 161 to status: completed
+[2025-04-26 17:45:09] [update_order_status.php:47] Order ID: 161 updated successfully to status: completed
+[2025-04-27 06:40:56] [update_order_status.php:34] Received request to update order ID: 163 to status: completed
+[2025-04-27 06:40:56] [update_order_status.php:47] Order ID: 163 updated successfully to status: completed
+[2025-04-27 06:45:13] [update_order_status.php:34] Received request to update order ID: 165 to status: processing
+[2025-04-27 06:45:13] [update_order_status.php:47] Order ID: 165 updated successfully to status: processing
+[2025-04-27 06:45:16] [update_order_status.php:34] Received request to update order ID: 164 to status: completed
+[2025-04-27 06:45:16] [update_order_status.php:47] Order ID: 164 updated successfully to status: completed
